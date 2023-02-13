@@ -3,8 +3,8 @@ import 'package:everex_function_test/funtion_test/camera_and_draw/camera_view.da
 import 'package:everex_function_test/funtion_test/spread_arm_left/spread_arm_left_pose_painter.dart';
 import 'package:flutter/material.dart';
 
-class SpreadArmRightView extends StatefulWidget {
-  const SpreadArmRightView(
+class SpreadArmLeftView extends StatefulWidget {
+  const SpreadArmLeftView(
       {Key? key, required this.cameraDescription, required this.modelAsset})
       : super(key: key);
 
@@ -12,10 +12,10 @@ class SpreadArmRightView extends StatefulWidget {
   final String modelAsset;
 
   @override
-  State<SpreadArmRightView> createState() => _SpreadArmRightViewState();
+  State<SpreadArmLeftView> createState() => _SpreadArmLeftViewState();
 }
 
-class _SpreadArmRightViewState extends State<SpreadArmRightView> {
+class _SpreadArmLeftViewState extends State<SpreadArmLeftView> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
