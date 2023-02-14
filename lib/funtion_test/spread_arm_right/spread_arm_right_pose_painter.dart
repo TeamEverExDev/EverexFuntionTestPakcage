@@ -22,10 +22,13 @@ class SpreadArmRightPosePainter extends CustomPainter {
 
     if (poseModelVo != null) {
       void paintLine(PosePoint type1, PosePoint type2, Paint paintType) {
-        canvas.drawLine(
-            Offset(translateX(type1.x, width), translateY(type1.y, height)),
-            Offset(translateX(type2.x, width), translateY(type2.y, height)),
-            paintType);
+        if ((type1.x <= 0 && type1.y <= 0) || (type2.x <= 0 && type2.y <= 0)) {
+        } else {
+          canvas.drawLine(
+              Offset(translateX(type1.x, width), translateY(type1.y, height)),
+              Offset(translateX(type2.x, width), translateY(type2.y, height)),
+              paintType);
+        }
       }
 
       List<PosePoint?> posePoint = poseModelVo!.getPosePointList();
@@ -33,7 +36,10 @@ class SpreadArmRightPosePainter extends CustomPainter {
       ///Draw Circle
       for (PosePoint? k in posePoint) {
         if (k != null) {
-          canvas.drawCircle(posePointToOffset(k, width, height), 1, paint);
+          if (k.x == 0 && k.y == 0) {
+          } else {
+            canvas.drawCircle(posePointToOffset(k, width, height), 1, paint);
+          }
         }
       }
 
