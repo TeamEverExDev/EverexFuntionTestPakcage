@@ -20,28 +20,36 @@ class _SpreadArmRightViewState extends State<SpreadArmRightView> {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
+    print("kk");
+    print(width);
+    print(height);
+
     Orientation viewOrientation = MediaQuery.of(context).orientation;
     if (viewOrientation == Orientation.landscape) {
       return Scaffold(
-          body: AspectRatio(
-        aspectRatio: 4 / 3,
-        child: mounted
-            ? CameraView(
-                cameraDescription: widget.cameraDescription,
-                modelAsset: widget.modelAsset,
-              )
-            : Container(),
+          body: Center(
+        child: AspectRatio(
+          aspectRatio: 4 / 3,
+          child: mounted
+              ? CameraView(
+                  cameraDescription: widget.cameraDescription,
+                  modelAsset: widget.modelAsset,
+                )
+              : Container(),
+        ),
       ));
     } else {
       return Scaffold(
-          body: AspectRatio(
-        aspectRatio: 3 / 4,
-        child: mounted
-            ? CameraView(
-                cameraDescription: widget.cameraDescription,
-                modelAsset: widget.modelAsset,
-              )
-            : Container(),
+          body: Center(
+        child: AspectRatio(
+          aspectRatio: 3 / 4,
+          child: mounted
+              ? CameraView(
+                  cameraDescription: widget.cameraDescription,
+                  modelAsset: widget.modelAsset,
+                )
+              : Container(),
+        ),
       ));
     }
   }
