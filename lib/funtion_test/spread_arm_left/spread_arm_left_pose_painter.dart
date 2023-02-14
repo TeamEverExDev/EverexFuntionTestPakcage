@@ -34,6 +34,8 @@ class SpreadArmLeftPosePainter extends CustomPainter {
           } else {
             canvas.drawCircle(
                 posePointToOffset(k, width, height), 1, pointPaint);
+            canvas.drawCircle(
+                posePointToOffset(k, width, height), 2, backgroundPaint);
           }
         }
       }

@@ -196,7 +196,15 @@ class _CameraViewState extends State<CameraView> with AfterLayoutMixin {
 
         if (runComplete ?? false) {
           List<double>? result = await EverexTflite.outPut();
-          functionTestStream.setPoseData(PoseModelVo.fromList(result ?? []));
+
+          if (widget.cameraDescription.lensDirection ==
+              CameraLensDirection.front) {
+            functionTestStream.setPoseData(PoseModelVo.fromList(result ?? []));
+          } else if (widget.cameraDescription.lensDirection ==
+              CameraLensDirection.back) {
+            functionTestStream
+                .setPoseData(PoseModelVo.fromListBackCamera(result ?? []));
+          }
         }
 
         busy = false;

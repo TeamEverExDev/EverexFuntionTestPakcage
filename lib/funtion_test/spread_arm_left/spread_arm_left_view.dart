@@ -23,27 +23,31 @@ class _SpreadArmLeftViewState extends State<SpreadArmLeftView> {
     Orientation viewOrientation = MediaQuery.of(context).orientation;
     if (viewOrientation == Orientation.landscape) {
       return Scaffold(
-          body: AspectRatio(
-        aspectRatio: 4 / 3,
-        child: mounted
-            ? CameraView(
-                cameraDescription: widget.cameraDescription,
-                modelAsset: widget.modelAsset,
-                ftId: 2,
-              )
-            : Container(),
+          body: Center(
+        child: AspectRatio(
+          aspectRatio: 4 / 3,
+          child: mounted
+              ? CameraView(
+                  cameraDescription: widget.cameraDescription,
+                  modelAsset: widget.modelAsset,
+                  ftId: 2,
+                )
+              : Container(),
+        ),
       ));
     } else {
       return Scaffold(
-          body: AspectRatio(
-        aspectRatio: 3 / 4,
-        child: mounted
-            ? CameraView(
-                cameraDescription: widget.cameraDescription,
-                modelAsset: widget.modelAsset,
-                ftId: 2,
-              )
-            : Container(),
+          body: Center(
+        child: AspectRatio(
+          aspectRatio: 3 / 4,
+          child: mounted
+              ? CameraView(
+                  cameraDescription: widget.cameraDescription,
+                  modelAsset: widget.modelAsset,
+                  ftId: 2,
+                )
+              : Container(),
+        ),
       ));
     }
   }

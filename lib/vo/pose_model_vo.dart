@@ -166,6 +166,87 @@ class PoseModelVo {
       }
     }
   }
+
+  PoseModelVo.fromListBackCamera(List<double> poseData) {
+    for (int i = 0; i < 48; i += 2) {
+      switch (i) {
+        case 0:
+          head = PosePoint(poseData[i], poseData[i + 1]);
+          break;
+        case 2:
+          neck = PosePoint(poseData[i], poseData[i + 1]);
+          break;
+        case 4:
+          centerOfShoulder = PosePoint(poseData[i], poseData[i + 1]);
+          break;
+        case 6:
+          leftShoulder = PosePoint(poseData[i], poseData[i + 1]);
+          break;
+        case 8:
+          rightShoulder = PosePoint(poseData[i], poseData[i + 1]);
+          break;
+        case 10:
+          leftElbow = PosePoint(poseData[i], poseData[i + 1]);
+          break;
+        case 12:
+          rightElbow = PosePoint(poseData[i], poseData[i + 1]);
+          break;
+        case 14:
+          leftWrist = PosePoint(poseData[i], poseData[i + 1]);
+          break;
+        case 16:
+          rightWrist = PosePoint(poseData[i], poseData[i + 1]);
+          break;
+        case 18:
+          leftPalm = PosePoint(poseData[i], poseData[i + 1]);
+          break;
+        case 20:
+          rightPalm = PosePoint(poseData[i], poseData[i + 1]);
+          break;
+        case 22:
+          leftPelvis = PosePoint(poseData[i], poseData[i + 1]);
+          break;
+        case 24:
+          rightPelvis = PosePoint(poseData[i], poseData[i + 1]);
+          break;
+        case 26:
+          leftKnee = PosePoint(poseData[i], poseData[i + 1]);
+          break;
+        case 28:
+          rightKnee = PosePoint(poseData[i], poseData[i + 1]);
+          break;
+        case 30:
+          leftAnkle = PosePoint(poseData[i], poseData[i + 1]);
+          break;
+        case 32:
+          rightAnkle = PosePoint(poseData[i], poseData[i + 1]);
+          break;
+        case 34:
+          leftTiptoe = PosePoint(poseData[i], poseData[i + 1]);
+          break;
+        case 36:
+          rightTiptoe = PosePoint(poseData[i], poseData[i + 1]);
+          break;
+        case 38:
+          leftHeel = PosePoint(poseData[i], poseData[i + 1]);
+          break;
+        case 40:
+          rightHeel = PosePoint(poseData[i], poseData[i + 1]);
+          break;
+        case 42:
+          centerSpine = PosePoint(poseData[i], poseData[i + 1]);
+          break;
+        case 44:
+          bottomSpine = PosePoint(poseData[i], poseData[i + 1]);
+          break;
+        case 46:
+          centerPelvis = PosePoint(poseData[i], poseData[i + 1]);
+          break;
+        default:
+          break;
+      }
+    }
+  }
 }
 
 class PosePoint {
