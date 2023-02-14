@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:everex_function_test/funtion_test/util/draw_util_function.dart';
 import 'package:everex_function_test/vo/pose_model_vo.dart';
 import 'package:flutter/material.dart';
@@ -6,11 +7,15 @@ import '../util/camera_view_size_cal.dart';
 
 class SpreadArmLeftPosePainter extends CustomPainter {
   SpreadArmLeftPosePainter(
-      {this.poseModelVo, required this.width, required this.height});
+      {this.poseModelVo,
+      required this.width,
+      required this.height,
+      required this.lensDirection});
 
   final PoseModelVo? poseModelVo;
   final double width;
   final double height;
+  final CameraLensDirection lensDirection;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -82,6 +87,14 @@ class SpreadArmLeftPosePainter extends CustomPainter {
           false,
           width,
           height);
+
+      if (lensDirection == CameraLensDirection.back) {
+        t1 = paintAngle(poseModelVo!.leftPelvis!, poseModelVo!.leftShoulder!,
+            poseModelVo!.leftElbow!, false, width, height);
+      } else if (lensDirection == CameraLensDirection.front) {
+        t1 = paintAngle(poseModelVo!.leftElbow!, poseModelVo!.leftShoulder!,
+            poseModelVo!.leftPelvis!, false, width, height);
+      }
 
       canvas.drawArc(
           t1.rect, t1.startRadAngle, t1.sweepRadAngle, true, anglePainter);

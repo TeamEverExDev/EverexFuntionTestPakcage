@@ -125,7 +125,11 @@ class _CameraViewState extends State<CameraView> with AfterLayoutMixin {
                 if (snapshot.data != null) {
                   if (snapshot.data!.centerPelvis != null) {
                     final painter = ftestPainterSelect(
-                        width, height, snapshot.data!, widget.ftId);
+                        width,
+                        height,
+                        snapshot.data!,
+                        widget.ftId,
+                        widget.cameraDescription.lensDirection);
                     return CustomPaint(painter: painter);
                   } else {
                     return Container();
