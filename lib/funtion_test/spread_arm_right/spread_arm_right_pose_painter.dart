@@ -1,3 +1,5 @@
+import 'package:everex_function_test/funtion_test/util/camera_view_size_cal.dart';
+import 'package:everex_function_test/funtion_test/util/draw_util_function.dart';
 import 'package:everex_function_test/vo/pose_model_vo.dart';
 import 'package:flutter/material.dart';
 
@@ -11,15 +13,6 @@ class SpreadArmRightPosePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 10.0
-      ..color = Color.fromRGBO(7, 190, 184, 1);
-    final bodyPaint = Paint()
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 10.0
-      ..color = Color.fromRGBO(7, 190, 184, 1);
-
     if (poseModelVo != null) {
       void paintLine(PosePoint type1, PosePoint type2, Paint paintType) {
         if ((type1.x <= 0 && type1.y <= 0) || (type2.x <= 0 && type2.y <= 0)) {
@@ -38,12 +31,13 @@ class SpreadArmRightPosePainter extends CustomPainter {
         if (k != null) {
           if (k.x == 0 && k.y == 0) {
           } else {
-            canvas.drawCircle(posePointToOffset(k, width, height), 1, paint);
+            canvas.drawCircle(
+                posePointToOffset(k, width, height), 1, pointPaint);
           }
         }
       }
 
-      //Draw Line
+      ///Draw Line
       paintLine(poseModelVo!.head!, poseModelVo!.neck!, bodyPaint);
       paintLine(poseModelVo!.neck!, poseModelVo!.centerOfShoulder!, bodyPaint);
       paintLine(poseModelVo!.centerOfShoulder!, poseModelVo!.leftShoulder!,
@@ -77,6 +71,20 @@ class SpreadArmRightPosePainter extends CustomPainter {
       paintLine(poseModelVo!.leftShoulder!, poseModelVo!.leftElbow!, bodyPaint);
       paintLine(poseModelVo!.leftElbow!, poseModelVo!.leftWrist!, bodyPaint);
       paintLine(poseModelVo!.leftWrist!, poseModelVo!.leftPalm!, bodyPaint);
+
+      ///draw angle
+      DrawArcModel t1 = paintAngle(
+          poseModelVo!.rightElbow!,
+          poseModelVo!.rightShoulder!,
+          poseModelVo!.rightPelvis!,
+          false,
+          width,
+          height);
+
+      canvas.drawArc(
+          t1.rect, t1.startRadAngle, t1.sweepRadAngle, true, anglePainter);
+      canvas.drawArc(t1.rect, t1.startRadAngle, t1.sweepRadAngle, true,
+          anglePainterBackground);
     }
   }
 
@@ -84,25 +92,4 @@ class SpreadArmRightPosePainter extends CustomPainter {
   bool shouldRepaint(covariant SpreadArmRightPosePainter oldDelegate) {
     return oldDelegate.poseModelVo != poseModelVo;
   }
-}
-
-Offset posePointToOffset(PosePoint posePoint, double width, double height) {
-  return Offset(
-    translateX(
-      posePoint.x,
-      width,
-    ),
-    translateY(
-      posePoint.y,
-      height,
-    ),
-  );
-}
-
-double translateX(double x, double width) {
-  return x * width / 60;
-}
-
-double translateY(double y, double height) {
-  return y * height / 80;
 }

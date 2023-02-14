@@ -1,6 +1,5 @@
 import 'package:camera/camera.dart';
 import 'package:everex_function_test/funtion_test/camera_and_draw/camera_view.dart';
-import 'package:everex_function_test/funtion_test/spread_arm_left/spread_arm_left_pose_painter.dart';
 import 'package:flutter/material.dart';
 
 class SpreadArmLeftView extends StatefulWidget {
@@ -30,6 +29,7 @@ class _SpreadArmLeftViewState extends State<SpreadArmLeftView> {
             ? CameraView(
                 cameraDescription: widget.cameraDescription,
                 modelAsset: widget.modelAsset,
+                ftId: 2,
               )
             : Container(),
       ));
@@ -41,6 +41,7 @@ class _SpreadArmLeftViewState extends State<SpreadArmLeftView> {
             ? CameraView(
                 cameraDescription: widget.cameraDescription,
                 modelAsset: widget.modelAsset,
+                ftId: 2,
               )
             : Container(),
       ));

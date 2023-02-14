@@ -20,10 +20,12 @@ class CameraView extends StatefulWidget {
     Key? key,
     required this.cameraDescription,
     required this.modelAsset,
+    required this.ftId,
   }) : super(key: key);
 
   final CameraDescription cameraDescription;
   final String modelAsset;
+  final int ftId;
 
   @override
   _CameraViewState createState() => _CameraViewState();
@@ -122,8 +124,8 @@ class _CameraViewState extends State<CameraView> with AfterLayoutMixin {
               if (snapshot.hasData) {
                 if (snapshot.data != null) {
                   if (snapshot.data!.centerPelvis != null) {
-                    final painter =
-                        ftestPainterSelect(width, height, snapshot.data!, 1);
+                    final painter = ftestPainterSelect(
+                        width, height, snapshot.data!, widget.ftId);
                     return CustomPaint(painter: painter);
                   } else {
                     return Container();

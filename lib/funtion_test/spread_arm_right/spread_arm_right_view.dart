@@ -34,6 +34,7 @@ class _SpreadArmRightViewState extends State<SpreadArmRightView> {
               ? CameraView(
                   cameraDescription: widget.cameraDescription,
                   modelAsset: widget.modelAsset,
+                  ftId: 1,
                 )
               : Container(),
         ),
@@ -47,6 +48,7 @@ class _SpreadArmRightViewState extends State<SpreadArmRightView> {
               ? CameraView(
                   cameraDescription: widget.cameraDescription,
                   modelAsset: widget.modelAsset,
+                  ftId: 1,
                 )
               : Container(),
         ),
