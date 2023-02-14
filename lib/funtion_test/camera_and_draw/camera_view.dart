@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:camera/camera.dart';
 import 'package:everex_function_test/controller/functon_test_controller.dart';
+import 'package:everex_function_test/funtion_test/util/camera_view_size_cal.dart';
 import 'package:everex_function_test/funtion_test/util/ftest_painter_selecter.dart';
 import 'package:everex_function_test/util/after_layout_mix.dart';
 import 'package:everex_tflite/everex_tflite.dart';
@@ -77,9 +78,17 @@ class _CameraViewState extends State<CameraView> with AfterLayoutMixin {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    Orientation viewOrientation = MediaQuery.of(context).orientation;
     print("ss");
     print(width);
     print(height);
+
+    if (viewOrientation == Orientation.landscape) {
+      width = cameraViewSizeCal(height, true);
+    } else {
+      height = cameraViewSizeCal(width, false);
+    }
+
     return WillPopScope(
       onWillPop: () {
         return Future(() => true); //뒤로가기 허용
