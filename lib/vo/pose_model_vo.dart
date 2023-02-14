@@ -129,10 +129,10 @@ class PoseModelVo {
           leftPelvis = PosePoint(poseData[i], poseData[i + 1]);
           break;
         case 26:
-          rightShoulder = PosePoint(poseData[i], poseData[i + 1]);
+          rightKnee = PosePoint(poseData[i], poseData[i + 1]);
           break;
         case 28:
-          leftShoulder = PosePoint(poseData[i], poseData[i + 1]);
+          leftKnee = PosePoint(poseData[i], poseData[i + 1]);
           break;
         case 30:
           rightAnkle = PosePoint(poseData[i], poseData[i + 1]);
