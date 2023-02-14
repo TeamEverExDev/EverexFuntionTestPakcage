@@ -89,6 +89,14 @@ class SpreadArmRightPosePainter extends CustomPainter {
           width,
           height);
 
+      if (lensDirection == CameraLensDirection.back) {
+        t1 = paintAngle(poseModelVo!.leftPelvis!, poseModelVo!.leftShoulder!,
+            poseModelVo!.leftElbow!, false, width, height);
+      } else if (lensDirection == CameraLensDirection.front) {
+        t1 = paintAngle(poseModelVo!.leftElbow!, poseModelVo!.leftShoulder!,
+            poseModelVo!.leftPelvis!, false, width, height);
+      }
+
       canvas.drawArc(
           t1.rect, t1.startRadAngle, t1.sweepRadAngle, true, anglePainter);
       canvas.drawArc(t1.rect, t1.startRadAngle, t1.sweepRadAngle, true,
