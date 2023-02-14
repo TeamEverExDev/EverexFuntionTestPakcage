@@ -90,11 +90,11 @@ class SpreadArmRightPosePainter extends CustomPainter {
           height);
 
       if (lensDirection == CameraLensDirection.back) {
-        t1 = paintAngle(poseModelVo!.leftPelvis!, poseModelVo!.leftShoulder!,
-            poseModelVo!.leftElbow!, false, width, height);
+        t1 = paintAngle(poseModelVo!.rightPelvis!, poseModelVo!.rightShoulder!,
+            poseModelVo!.rightElbow!, false, width, height);
       } else if (lensDirection == CameraLensDirection.front) {
-        t1 = paintAngle(poseModelVo!.leftElbow!, poseModelVo!.leftShoulder!,
-            poseModelVo!.leftPelvis!, false, width, height);
+        t1 = paintAngle(poseModelVo!.rightElbow!, poseModelVo!.rightShoulder!,
+            poseModelVo!.rightPelvis!, false, width, height);
       }
 
       canvas.drawArc(
