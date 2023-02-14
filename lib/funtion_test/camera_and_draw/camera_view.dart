@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:camera/camera.dart';
 import 'package:everex_function_test/controller/functon_test_controller.dart';
+import 'package:everex_function_test/funtion_test/util/ftest_painter_selecter.dart';
 import 'package:everex_function_test/util/after_layout_mix.dart';
 import 'package:everex_tflite/everex_tflite.dart';
 import 'package:flutter/foundation.dart';
@@ -14,16 +15,14 @@ import 'package:native_device_orientation/native_device_orientation.dart';
 import '../../vo/pose_model_vo.dart';
 
 class CameraView extends StatefulWidget {
-  const CameraView(
-      {Key? key,
-      required this.cameraDescription,
-      required this.modelAsset,
-      required this.painter})
-      : super(key: key);
+  const CameraView({
+    Key? key,
+    required this.cameraDescription,
+    required this.modelAsset,
+  }) : super(key: key);
 
   final CameraDescription cameraDescription;
   final String modelAsset;
-  final CustomPainter painter;
 
   @override
   _CameraViewState createState() => _CameraViewState();
@@ -76,23 +75,28 @@ class _CameraViewState extends State<CameraView> with AfterLayoutMixin {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
     return WillPopScope(
       onWillPop: () {
         return Future(() => true); //뒤로가기 허용
       },
       child: Scaffold(
-        body: completeLoadCamera ? _body() : Container(),
+        body: completeLoadCamera
+            ? _body(width: width, height: height)
+            : Container(),
       ),
     );
   }
 
-  Widget _body() {
+  Widget _body({required double width, required double height}) {
     Widget body;
-    body = _liveFeedBody();
+    body = _liveFeedBody(width: width, height: height);
     return body;
   }
 
-  Widget _liveFeedBody() {
+  Widget _liveFeedBody({required double width, required double height}) {
     return Transform.scale(
       scale: 1,
       alignment: Alignment.topCenter,
@@ -107,7 +111,8 @@ class _CameraViewState extends State<CameraView> with AfterLayoutMixin {
               if (snapshot.hasData) {
                 if (snapshot.data != null) {
                   if (snapshot.data!.centerPelvis != null) {
-                    final painter = widget.painter;
+                    final painter =
+                        ftestPainterSelect(width, height, snapshot.data!, 1);
                     return CustomPaint(painter: painter);
                   } else {
                     return Container();

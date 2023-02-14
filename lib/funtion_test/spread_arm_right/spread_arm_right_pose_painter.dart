@@ -35,11 +35,11 @@ class SpreadArmRightPosePainter extends CustomPainter {
 Offset posePointToOffset(PosePoint posePoint, double width, double height) {
   return Offset(
     translateX(
-      posePoint.x!,
+      posePoint.x,
       width,
     ),
     translateY(
-      posePoint.y!,
+      posePoint.y,
       height,
     ),
   );

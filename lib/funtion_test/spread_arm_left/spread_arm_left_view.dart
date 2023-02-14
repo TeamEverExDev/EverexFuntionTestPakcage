@@ -19,22 +19,10 @@ class _SpreadArmLeftViewState extends State<SpreadArmLeftView> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
 
     Orientation viewOrientation = MediaQuery.of(context).orientation;
     if (viewOrientation == Orientation.landscape) {
-      return Scaffold(
-          body: AspectRatio(
-        aspectRatio: 3 / 4,
-        child: mounted
-            ? CameraView(
-                cameraDescription: widget.cameraDescription,
-                modelAsset: widget.modelAsset,
-                painter: SpreadArmLeftPosePainter(width: width, height: height),
-              )
-            : Container(),
-      ));
-    } else {
       return Scaffold(
           body: AspectRatio(
         aspectRatio: 4 / 3,
@@ -42,7 +30,17 @@ class _SpreadArmLeftViewState extends State<SpreadArmLeftView> {
             ? CameraView(
                 cameraDescription: widget.cameraDescription,
                 modelAsset: widget.modelAsset,
-                painter: SpreadArmLeftPosePainter(width: width, height: height),
+              )
+            : Container(),
+      ));
+    } else {
+      return Scaffold(
+          body: AspectRatio(
+        aspectRatio: 3 / 4,
+        child: mounted
+            ? CameraView(
+                cameraDescription: widget.cameraDescription,
+                modelAsset: widget.modelAsset,
               )
             : Container(),
       ));
