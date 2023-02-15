@@ -15,6 +15,7 @@ dependencies:
   native_device_orientation: ^1.1.4
   dio: ^4.0.4                   # Http 통신
   image_picker: ^0.8.5+3
+  intl: ^0.17.0
   everex_tflite:
     git:
       url: https://github.com/TeamEverExDev/EverexTflite.git
