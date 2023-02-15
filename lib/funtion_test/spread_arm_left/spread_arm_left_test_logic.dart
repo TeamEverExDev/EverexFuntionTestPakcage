@@ -1,23 +1,19 @@
 import 'package:everex_function_test/funtion_test/util/evaluation_util.dart';
-import 'package:everex_function_test/vo/pose_data_one_tick.dart';
 import 'package:everex_function_test/vo/pose_model_vo.dart';
 
 class SpreadArmLeftTestLogic {
   int finalLeftAngle = 0;
   int tempAngle = 0;
 
-  fTest(PoseDataOneTick poseDataOneTick, int currentEvaluationShotId) {
+  fTest(PoseModelVo poseModelVo, int ftSectionIndex) {
     PosePoint ra;
     PosePoint rb;
     PosePoint rc;
 
-    if (currentEvaluationShotId == 0) {
-      ra = PosePoint(poseDataOneTick.poseModelVo.leftElbow!.x,
-          poseDataOneTick.poseModelVo.leftElbow!.y);
-      rb = PosePoint(poseDataOneTick.poseModelVo.leftShoulder!.x,
-          poseDataOneTick.poseModelVo.leftShoulder!.y);
-      rc = PosePoint(poseDataOneTick.poseModelVo.leftPelvis!.x,
-          poseDataOneTick.poseModelVo.leftPelvis!.y);
+    if (ftSectionIndex == 0) {
+      ra = PosePoint(poseModelVo.leftElbow!.x, poseModelVo.leftElbow!.y);
+      rb = PosePoint(poseModelVo.leftShoulder!.x, poseModelVo.leftShoulder!.y);
+      rc = PosePoint(poseModelVo.leftPelvis!.x, poseModelVo.leftPelvis!.y);
 
       tempAngle = get2DAngle(ra, rb, rc).toInt();
       if (tempAngle <= 180 && tempAngle > finalLeftAngle) {
@@ -25,4 +21,11 @@ class SpreadArmLeftTestLogic {
       }
     }
   }
+
+  reset() {
+    finalLeftAngle = 0;
+    tempAngle = 0;
+  }
 }
+
+final ft1Logic = SpreadArmLeftTestLogic();

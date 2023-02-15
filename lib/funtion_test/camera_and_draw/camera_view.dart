@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:camera/camera.dart';
 import 'package:everex_function_test/controller/functon_test_controller.dart';
+import 'package:everex_function_test/funtion_test/camera_typedef.dart';
 import 'package:everex_function_test/funtion_test/util/camera_view_size_cal.dart';
 import 'package:everex_function_test/funtion_test/util/ftest_painter_selecter.dart';
 import 'package:everex_function_test/util/after_layout_mix.dart';
@@ -21,11 +22,13 @@ class CameraView extends StatefulWidget {
     required this.cameraDescription,
     required this.modelAsset,
     required this.ftId,
+    required this.callBackPoseModel,
   }) : super(key: key);
 
   final CameraDescription cameraDescription;
   final String modelAsset;
   final int ftId;
+  final CallBackPoseModel callBackPoseModel;
 
   @override
   _CameraViewState createState() => _CameraViewState();
@@ -81,9 +84,6 @@ class _CameraViewState extends State<CameraView> with AfterLayoutMixin {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     Orientation viewOrientation = MediaQuery.of(context).orientation;
-    print("ss");
-    print(width);
-    print(height);
 
     if (viewOrientation == Orientation.landscape) {
       width = cameraViewSizeCal(height, true);
@@ -200,15 +200,17 @@ class _CameraViewState extends State<CameraView> with AfterLayoutMixin {
 
         if (runComplete ?? false) {
           List<double>? result = await EverexTflite.outPut();
-
+          PoseModelVo? poseModelVo;
           if (widget.cameraDescription.lensDirection ==
               CameraLensDirection.front) {
-            functionTestStream.setPoseData(PoseModelVo.fromList(result ?? []));
+            poseModelVo = PoseModelVo.fromList(result ?? []);
+            functionTestStream.setPoseData(poseModelVo);
           } else if (widget.cameraDescription.lensDirection ==
               CameraLensDirection.back) {
-            functionTestStream
-                .setPoseData(PoseModelVo.fromListBackCamera(result ?? []));
+            poseModelVo = PoseModelVo.fromListBackCamera(result ?? []);
+            functionTestStream.setPoseData(poseModelVo);
           }
+          widget.callBackPoseModel(poseModelVo!);
         }
 
         busy = false;
