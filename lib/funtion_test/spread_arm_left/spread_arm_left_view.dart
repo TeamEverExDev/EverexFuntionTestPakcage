@@ -45,19 +45,38 @@ class _SpreadArmLeftViewState extends State<SpreadArmLeftView> {
                 child: AspectRatio(
                   aspectRatio: 4 / 3,
                   child: mounted
-                      ? CameraView(
-                          cameraDescription: widget.cameraDescription,
-                          modelAsset: widget.modelAsset,
-                          ftId: 2,
-                          callBackPoseModel: (poseModel) {
-                            bool complete =
-                                ft2procedure.functionTestRun(poseModel);
-                            setState(() {});
-                            if (complete && alreadyComplete == false) {
-                              alreadyComplete = true;
-                              Navigator.of(context).pop();
-                            }
-                          },
+                      ? Stack(
+                          children: [
+                            CameraView(
+                              cameraDescription: widget.cameraDescription,
+                              modelAsset: widget.modelAsset,
+                              ftId: 2,
+                              callBackPoseModel: (poseModel) {
+                                bool complete =
+                                    ft2procedure.functionTestRun(poseModel);
+                                setState(() {});
+                                if (complete && alreadyComplete == false) {
+                                  alreadyComplete = true;
+                                  Navigator.of(context).pop();
+                                }
+                              },
+                            ),
+                            ft2procedure.fullSet.first.index == 0
+                                ? Container(
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: ft2procedure.tempReady
+                                            ? Colors.green
+                                            : Colors.red,
+                                        style: BorderStyle.solid,
+                                        width: 10,
+                                      ),
+                                    ),
+                                  )
+                                : Container(),
+                          ],
                         )
                       : Container(),
                 ),
