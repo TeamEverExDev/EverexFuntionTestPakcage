@@ -8,20 +8,25 @@ class SpreadArmRightTestLogic implements TestLogicInterface {
 
   @override
   fTest(PoseModelVo poseModelVo, int ftSectionIndex) {
-    PosePoint ra;
-    PosePoint rb;
-    PosePoint rc;
+    try {
+      PosePoint ra;
+      PosePoint rb;
+      PosePoint rc;
 
-    if (ftSectionIndex == 0) {
-      ra = PosePoint(poseModelVo.leftElbow!.x, poseModelVo.leftElbow!.y);
-      rb = PosePoint(poseModelVo.leftShoulder!.x, poseModelVo.leftShoulder!.y);
-      rc = PosePoint(poseModelVo.leftPelvis!.x, poseModelVo.leftPelvis!.y);
+      if (ftSectionIndex == 0) {
+        ra = PosePoint(poseModelVo.leftElbow!.x, poseModelVo.leftElbow!.y);
+        rb = PosePoint(poseModelVo.leftShoulder!.x, poseModelVo.leftShoulder!.y);
+        rc = PosePoint(poseModelVo.leftPelvis!.x, poseModelVo.leftPelvis!.y);
 
-      tempAngle = get2DAngle(ra, rb, rc).toInt();
-      if (tempAngle <= 180 && tempAngle > finalRightAngle) {
-        finalRightAngle = tempAngle;
+        tempAngle = get2DAngle(ra, rb, rc).toInt();
+        if (tempAngle <= 180 && tempAngle > finalRightAngle) {
+          finalRightAngle = tempAngle;
+        }
       }
+    } catch (e) {
+      print(e);
     }
+
   }
 
   @override
