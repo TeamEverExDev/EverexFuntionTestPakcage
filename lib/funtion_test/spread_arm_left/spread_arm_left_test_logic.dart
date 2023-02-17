@@ -13,7 +13,7 @@ class SpreadArmLeftTestLogic implements TestLogicInterface {
       PosePoint lb;
       PosePoint lc;
 
-      if (ftSectionIndex == 0) {
+      if (ftSectionIndex == 1) {
         la = PosePoint(poseModelVo.leftElbow!.x, poseModelVo.leftElbow!.y);
         lb =
             PosePoint(poseModelVo.leftShoulder!.x, poseModelVo.leftShoulder!.y);
@@ -33,6 +33,16 @@ class SpreadArmLeftTestLogic implements TestLogicInterface {
   reset() {
     finalLeftAngle = 0;
     tempAngle = 0;
+  }
+
+  bool readyFTest(PoseModelVo poseModelVo) {
+    if (poseModelVo.head!.x > 25 &&
+        poseModelVo.head!.x < 35 &&
+        poseModelVo.head!.y < 45) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 
