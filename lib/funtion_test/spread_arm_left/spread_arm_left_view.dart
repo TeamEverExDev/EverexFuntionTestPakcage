@@ -50,6 +50,7 @@ class _SpreadArmLeftViewState extends State<SpreadArmLeftView> {
                           callBackPoseModel: (poseModel) {
                             bool complete =
                                 ft2procedure.functionTestRun(poseModel);
+                            setState(() {});
                             if (complete) {
                               Navigator.of(context).pop();
                             }
@@ -88,6 +89,7 @@ class _SpreadArmLeftViewState extends State<SpreadArmLeftView> {
                           callBackPoseModel: (poseModel) {
                             bool complete =
                                 ft2procedure.functionTestRun(poseModel);
+                            setState(() {});
                             if (complete) {
                               Navigator.of(context).pop();
                             }

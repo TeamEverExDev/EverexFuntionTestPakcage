@@ -51,6 +51,7 @@ class _SpreadArmRightViewState extends State<SpreadArmRightView> {
                           callBackPoseModel: (poseModel) {
                             bool complete =
                                 ft1procedure.functionTestRun(poseModel);
+                            setState(() {});
                             if (complete) {
                               Navigator.of(context).pop();
                             }
@@ -86,7 +87,14 @@ class _SpreadArmRightViewState extends State<SpreadArmRightView> {
                           cameraDescription: widget.cameraDescription,
                           modelAsset: widget.modelAsset,
                           ftId: 1,
-                          callBackPoseModel: (poseModel) {},
+                          callBackPoseModel: (poseModel) {
+                            bool complete =
+                                ft1procedure.functionTestRun(poseModel);
+                            setState(() {});
+                            if (complete) {
+                              Navigator.of(context).pop();
+                            }
+                          },
                         )
                       : Container(),
                 ),
