@@ -15,5 +15,19 @@ mixin AfterLayoutMixin<T extends StatefulWidget> on State<T> {
     );
   }
 
+  // @override
+  // Widget build(BuildContext buildContext) {
+  //   Orientation viewOrientation = MediaQuery.of(context).orientation;
+  //   if (viewOrientation == Orientation.landscape) {
+  //     return landScapeView(buildContext);
+  //   } else {
+  //     return portraitView(buildContext);
+  //   }
+  // }
+  //
+  // Widget portraitView(BuildContext buildContext);
+  //
+  // Widget landScapeView(BuildContext buildContext);
+
   FutureOr<void> afterFirstLayout(BuildContext context);
 }

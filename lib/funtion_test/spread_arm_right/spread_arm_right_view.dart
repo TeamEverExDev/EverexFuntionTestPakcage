@@ -1,7 +1,10 @@
 import 'package:camera/camera.dart';
 import 'package:everex_function_test/funtion_test/camera_and_draw/camera_view.dart';
+import 'package:everex_function_test/funtion_test/spread_arm_right/spread_arm_right_procedure.dart';
 import 'package:everex_function_test/funtion_test/util/test_timer_and_score_widget.dart';
 import 'package:flutter/material.dart';
+
+import 'spread_arm_right_test_logic.dart';
 
 class SpreadArmRightView extends StatefulWidget {
   const SpreadArmRightView(
@@ -16,6 +19,18 @@ class SpreadArmRightView extends StatefulWidget {
 }
 
 class _SpreadArmRightViewState extends State<SpreadArmRightView> {
+  @override
+  void initState() {
+    super.initState();
+    ft1procedure.setInit();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    ft1procedure.clear();
+  }
+
   @override
   Widget build(BuildContext context) {
     Orientation viewOrientation = MediaQuery.of(context).orientation;
@@ -33,7 +48,13 @@ class _SpreadArmRightViewState extends State<SpreadArmRightView> {
                           cameraDescription: widget.cameraDescription,
                           modelAsset: widget.modelAsset,
                           ftId: 1,
-                          callBackPoseModel: (poseModel) {},
+                          callBackPoseModel: (poseModel) {
+                            bool complete =
+                                ft1procedure.functionTestRun(poseModel);
+                            if (complete) {
+                              Navigator.of(context).pop();
+                            }
+                          },
                         )
                       : Container(),
                 ),
@@ -43,11 +64,11 @@ class _SpreadArmRightViewState extends State<SpreadArmRightView> {
                   right: 0,
                   bottom: 0,
                   child: TestTimerAndScoreWidget(
-                    remainSecond: 0,
-                    resultTitle: 'test',
-                    value: 0.5,
-                    result: '',
-                    ftId: 0,
+                    remainSecond: ft1procedure.second,
+                    resultTitle: '각도',
+                    value: ft1procedure.progressGauge,
+                    result: ft1Logic.finalRightAngle.toString(),
+                    ftId: 1,
                   ))
             ],
           ));
@@ -75,11 +96,11 @@ class _SpreadArmRightViewState extends State<SpreadArmRightView> {
                   right: 0,
                   bottom: 0,
                   child: TestTimerAndScoreWidget(
-                    remainSecond: 0,
-                    resultTitle: 'test',
-                    value: 0.5,
-                    result: '',
-                    ftId: 0,
+                    remainSecond: ft1procedure.second,
+                    resultTitle: '각도',
+                    value: ft1procedure.progressGauge,
+                    result: ft1Logic.finalRightAngle.toString(),
+                    ftId: 1,
                   ))
             ],
           ));

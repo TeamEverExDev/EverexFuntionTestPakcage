@@ -19,7 +19,7 @@ class SpreadArmLeftProcedure implements ProcedureInterface {
         index: 0, second: 15, done: false, active: true, imageAsset: ''));
     fullSet.add(FunctionTestSectionModel(
         index: 1, second: -1, done: false, active: false, imageAsset: ''));
-    ft1Logic.reset();
+    ft2Logic.reset();
   }
 
   @override
@@ -35,7 +35,7 @@ class SpreadArmLeftProcedure implements ProcedureInterface {
     startDate = DateTime.now();
     second = 0;
     progressGauge = 0;
-    ft1Logic.reset();
+    ft2Logic.reset();
   }
 
   @override
@@ -47,7 +47,7 @@ class SpreadArmLeftProcedure implements ProcedureInterface {
     startDate = DateTime.now();
     second = 0;
     progressGauge = 0;
-    ft1Logic.reset();
+    ft2Logic.reset();
   }
 
   functionTestRun(PoseModelVo poseModelVo) {
@@ -62,7 +62,7 @@ class SpreadArmLeftProcedure implements ProcedureInterface {
             DateTime.now().difference(startDate).inSeconds.toDouble(); // 진행시간
         progressGauge = second / sectionModel.second; //진행률
 
-        ft1Logic.fTest(poseModelVo, sectionModel.index); //기능평가 로직 진행
+        ft2Logic.fTest(poseModelVo, sectionModel.index); //기능평가 로직 진행
 
         poseDataOneTicks.add(PoseDataOneTick(
             poseModelVo: poseModelVo,
@@ -91,4 +91,4 @@ class SpreadArmLeftProcedure implements ProcedureInterface {
   }
 }
 
-final ft1procedure = SpreadArmLeftProcedure();
+final ft2procedure = SpreadArmLeftProcedure();

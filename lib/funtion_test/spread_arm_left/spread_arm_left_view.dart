@@ -21,13 +21,13 @@ class _SpreadArmLeftViewState extends State<SpreadArmLeftView> {
   @override
   void initState() {
     super.initState();
-    ft1procedure.setInit();
+    ft2procedure.setInit();
   }
 
   @override
   void dispose() {
     super.dispose();
-    ft1procedure.clear();
+    ft2procedure.clear();
   }
 
   @override
@@ -49,7 +49,7 @@ class _SpreadArmLeftViewState extends State<SpreadArmLeftView> {
                           ftId: 2,
                           callBackPoseModel: (poseModel) {
                             bool complete =
-                                ft1procedure.functionTestRun(poseModel);
+                                ft2procedure.functionTestRun(poseModel);
                             if (complete) {
                               Navigator.of(context).pop();
                             }
@@ -63,10 +63,10 @@ class _SpreadArmLeftViewState extends State<SpreadArmLeftView> {
                   right: 0,
                   bottom: 0,
                   child: TestTimerAndScoreWidget(
-                    remainSecond: ft1procedure.second,
+                    remainSecond: ft2procedure.second,
                     resultTitle: '각도',
-                    value: ft1procedure.progressGauge,
-                    result: ft1Logic.finalLeftAngle.toString(),
+                    value: ft2procedure.progressGauge,
+                    result: ft2Logic.finalLeftAngle.toString(),
                     ftId: 2,
                   ))
             ],
@@ -87,7 +87,7 @@ class _SpreadArmLeftViewState extends State<SpreadArmLeftView> {
                           ftId: 2,
                           callBackPoseModel: (poseModel) {
                             bool complete =
-                                ft1procedure.functionTestRun(poseModel);
+                                ft2procedure.functionTestRun(poseModel);
                             if (complete) {
                               Navigator.of(context).pop();
                             }
@@ -101,10 +101,10 @@ class _SpreadArmLeftViewState extends State<SpreadArmLeftView> {
                   right: 0,
                   bottom: 0,
                   child: TestTimerAndScoreWidget(
-                    remainSecond: ft1procedure.second,
+                    remainSecond: ft2procedure.second,
                     resultTitle: '각도',
-                    value: ft1procedure.progressGauge,
-                    result: ft1Logic.finalLeftAngle.toString(),
+                    value: ft2procedure.progressGauge,
+                    result: ft2Logic.finalLeftAngle.toString(),
                     ftId: 2,
                   ))
             ],
