@@ -19,6 +19,8 @@ class RaiseArmForwardView extends StatefulWidget {
 }
 
 class _RaiseArmForwardViewState extends State<RaiseArmForwardView> {
+  bool alreadyComplete = false;
+
   @override
   void initState() {
     super.initState();
@@ -52,7 +54,8 @@ class _RaiseArmForwardViewState extends State<RaiseArmForwardView> {
                             bool complete =
                                 ft3procedure.functionTestRun(poseModel);
                             setState(() {});
-                            if (complete) {
+                            if (complete && alreadyComplete == false) {
+                              alreadyComplete = true;
                               Navigator.of(context).pop();
                             }
                           },
@@ -91,7 +94,8 @@ class _RaiseArmForwardViewState extends State<RaiseArmForwardView> {
                             bool complete =
                                 ft3procedure.functionTestRun(poseModel);
                             setState(() {});
-                            if (complete) {
+                            if (complete && alreadyComplete == false) {
+                              alreadyComplete = true;
                               Navigator.of(context).pop();
                             }
                           },

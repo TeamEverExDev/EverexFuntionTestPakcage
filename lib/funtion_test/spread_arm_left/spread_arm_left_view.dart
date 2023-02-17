@@ -18,6 +18,8 @@ class SpreadArmLeftView extends StatefulWidget {
 }
 
 class _SpreadArmLeftViewState extends State<SpreadArmLeftView> {
+  bool alreadyComplete = false;
+
   @override
   void initState() {
     super.initState();
@@ -51,7 +53,8 @@ class _SpreadArmLeftViewState extends State<SpreadArmLeftView> {
                             bool complete =
                                 ft2procedure.functionTestRun(poseModel);
                             setState(() {});
-                            if (complete) {
+                            if (complete && alreadyComplete == false) {
+                              alreadyComplete = true;
                               Navigator.of(context).pop();
                             }
                           },
@@ -90,7 +93,8 @@ class _SpreadArmLeftViewState extends State<SpreadArmLeftView> {
                             bool complete =
                                 ft2procedure.functionTestRun(poseModel);
                             setState(() {});
-                            if (complete) {
+                            if (complete && alreadyComplete == false) {
+                              alreadyComplete = true;
                               Navigator.of(context).pop();
                             }
                           },
