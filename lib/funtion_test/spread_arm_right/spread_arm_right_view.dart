@@ -46,38 +46,19 @@ class _SpreadArmRightViewState extends State<SpreadArmRightView> {
                 child: AspectRatio(
                   aspectRatio: 4 / 3,
                   child: mounted
-                      ? Stack(
-                          children: [
-                            CameraView(
-                              cameraDescription: widget.cameraDescription,
-                              modelAsset: widget.modelAsset,
-                              ftId: 1,
-                              callBackPoseModel: (poseModel) {
-                                bool complete =
-                                    ft1procedure.functionTestRun(poseModel);
-                                setState(() {});
-                                if (complete && alreadyComplete == false) {
-                                  alreadyComplete = true;
-                                  Navigator.of(context).pop();
-                                }
-                              },
-                            ),
-                            ft1procedure.fullSet.first.index == 0
-                                ? Container(
-                                    width: double.infinity,
-                                    height: double.infinity,
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        color: ft1procedure.tempReady
-                                            ? Colors.green
-                                            : Colors.red,
-                                        style: BorderStyle.solid,
-                                        width: 10,
-                                      ),
-                                    ),
-                                  )
-                                : Container(),
-                          ],
+                      ? CameraView(
+                          cameraDescription: widget.cameraDescription,
+                          modelAsset: widget.modelAsset,
+                          ftId: 1,
+                          callBackPoseModel: (poseModel) {
+                            bool complete =
+                                ft1procedure.functionTestRun(poseModel);
+                            setState(() {});
+                            if (complete && alreadyComplete == false) {
+                              alreadyComplete = true;
+                              Navigator.of(context).pop();
+                            }
+                          },
                         )
                       : Container(),
                 ),
