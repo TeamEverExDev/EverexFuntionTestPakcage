@@ -6,7 +6,7 @@ import 'package:everex_function_test/vo/pose_model_vo.dart';
 import 'spread_arm_right_test_logic.dart';
 
 class SpreadArmRightProcedure implements ProcedureInterface {
-  late List<FunctionTestSectionModel> fullSet;
+  List<FunctionTestSectionModel> fullSet = <FunctionTestSectionModel>[];
   List<PoseDataOneTick> poseDataOneTicks = <PoseDataOneTick>[];
   Map<int, List<PoseDataOneTick>> resultMap = <int, List<PoseDataOneTick>>{};
   int nextIndex = 0;
