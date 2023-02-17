@@ -14,9 +14,10 @@ class SpreadArmRightTestLogic implements TestLogicInterface {
       PosePoint rc;
 
       if (ftSectionIndex == 0) {
-        ra = PosePoint(poseModelVo.leftElbow!.x, poseModelVo.leftElbow!.y);
-        rb = PosePoint(poseModelVo.leftShoulder!.x, poseModelVo.leftShoulder!.y);
-        rc = PosePoint(poseModelVo.leftPelvis!.x, poseModelVo.leftPelvis!.y);
+        ra = PosePoint(poseModelVo.rightElbow!.x, poseModelVo.rightElbow!.y);
+        rb = PosePoint(
+            poseModelVo.rightShoulder!.x, poseModelVo.rightShoulder!.y);
+        rc = PosePoint(poseModelVo.rightPelvis!.x, poseModelVo.rightPelvis!.y);
 
         tempAngle = get2DAngle(ra, rb, rc).toInt();
         if (tempAngle <= 180 && tempAngle > finalRightAngle) {
@@ -26,7 +27,6 @@ class SpreadArmRightTestLogic implements TestLogicInterface {
     } catch (e) {
       print(e);
     }
-
   }
 
   @override
