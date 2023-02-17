@@ -70,10 +70,10 @@ class SpreadArmRightProcedure implements ProcedureInterface {
         } else {
           second =
               DateTime.now().difference(startDate).inSeconds.toDouble(); // 진행시간
-
           if (DateTime.now().difference(startDate) >
               Duration(seconds: fullSet.first.second)) {
             print("3초 유지 성공");
+            fullSet.removeAt(0);
           }
         }
       } else {
