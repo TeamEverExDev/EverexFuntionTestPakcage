@@ -73,6 +73,7 @@ class SpreadArmLeftProcedure implements ProcedureInterface {
               Duration(seconds: fullSet.first.second)) {
             print("3초 유지 성공");
             fullSet.removeAt(0);
+            nextIndex++;
           }
         }
       } else {
