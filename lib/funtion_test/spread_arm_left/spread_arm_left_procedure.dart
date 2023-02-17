@@ -62,7 +62,11 @@ class SpreadArmLeftProcedure implements ProcedureInterface {
             DateTime.now().difference(startDate).inSeconds.toDouble(); // 진행시간
         progressGauge = second / sectionModel.second; //진행률
 
-        ft2Logic.fTest(poseModelVo, sectionModel.index); //기능평가 로직 진행
+        try {
+          ft2Logic.fTest(poseModelVo, sectionModel.index); //기능평가 로직 진행
+        } catch (e) {
+          print(e);
+        }
 
         poseDataOneTicks.add(PoseDataOneTick(
             poseModelVo: poseModelVo,
