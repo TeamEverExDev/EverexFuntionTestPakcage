@@ -58,7 +58,7 @@ class _OnelegSquatLeftViewState extends State<OnelegSquatLeftView> {
                     remainSecond: ft9procedure.second,
                     resultTitle: '각도',
                     value: ft9procedure.progressGauge,
-                    result: ft9Logic.finalRightAngle.toString(),
+                    result: ft9Logic.currentScore.toString(),
                     ftId: 5,
                   ))
             ],
@@ -95,9 +95,9 @@ class _OnelegSquatLeftViewState extends State<OnelegSquatLeftView> {
                   bottom: 0,
                   child: TestTimerAndScoreWidget(
                     remainSecond: ft9procedure.second,
-                    resultTitle: '각도',
+                    resultTitle: '점수',
                     value: ft9procedure.progressGauge,
-                    result: ft9Logic.finalRightAngle.toString(),
+                    result: ft9Logic.currentScore.toString(),
                     ftId: 5,
                   ))
             ],

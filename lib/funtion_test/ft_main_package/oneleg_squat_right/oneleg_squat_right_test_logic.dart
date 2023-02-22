@@ -23,7 +23,7 @@ class OnelegSquatRightTestLogic implements TestLogicInterface {
 
   late PoseModelVo standardPoseModel;
 
-  List<PoseModelVo> readyPoseData = [];
+  List<PoseModelVo> readyPoseData = <PoseModelVo>[];
 
   @override
   fTest(PoseModelVo poseModelVo, int ftSectionIndex) {
