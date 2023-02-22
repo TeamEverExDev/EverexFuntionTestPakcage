@@ -1,13 +1,13 @@
 import 'package:camera/camera.dart';
 import 'package:everex_function_test/funtion_test/camera_and_draw/camera_view.dart';
-import 'package:everex_function_test/funtion_test/spread_arm_right/spread_arm_right_procedure.dart';
+import 'package:everex_function_test/funtion_test/ft_main_package/oneleg_squat_right/oneleg_squat_right_test_logic.dart';
 import 'package:everex_function_test/funtion_test/util/test_timer_and_score_widget.dart';
 import 'package:flutter/material.dart';
 
-import 'spread_arm_right_test_logic.dart';
+import 'oneleg_squat_right_procedure.dart';
 
-class SpreadArmRightView extends StatefulWidget {
-  const SpreadArmRightView(
+class OnelegSquatRightView extends StatefulWidget {
+  const OnelegSquatRightView(
       {Key? key, required this.cameraDescription, required this.modelAsset})
       : super(key: key);
 
@@ -15,23 +15,11 @@ class SpreadArmRightView extends StatefulWidget {
   final String modelAsset;
 
   @override
-  State<SpreadArmRightView> createState() => _SpreadArmRightViewState();
+  State<OnelegSquatRightView> createState() => _OnelegSquatRightViewState();
 }
 
-class _SpreadArmRightViewState extends State<SpreadArmRightView> {
+class _OnelegSquatRightViewState extends State<OnelegSquatRightView> {
   bool alreadyComplete = false;
-
-  @override
-  void initState() {
-    super.initState();
-    ft1procedure.setInit();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    ft1procedure.clear();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,10 +37,9 @@ class _SpreadArmRightViewState extends State<SpreadArmRightView> {
                       ? CameraView(
                           cameraDescription: widget.cameraDescription,
                           modelAsset: widget.modelAsset,
-                          ftId: 1,
+                          ftId: 2,
                           callBackPoseModel: (poseModel) {
-                            bool complete =
-                                ft1procedure.functionTestRun(poseModel);
+                            bool complete = true;
                             setState(() {});
                             if (complete && alreadyComplete == false) {
                               alreadyComplete = true;
@@ -68,11 +55,11 @@ class _SpreadArmRightViewState extends State<SpreadArmRightView> {
                   right: 0,
                   bottom: 0,
                   child: TestTimerAndScoreWidget(
-                    remainSecond: ft1procedure.second,
-                    resultTitle: '각도',
-                    value: ft1procedure.progressGauge,
-                    result: ft1Logic.finalRightAngle.toString(),
-                    ftId: 1,
+                    remainSecond: ft8procedure.second,
+                    resultTitle: '점수',
+                    value: ft8procedure.progressGauge,
+                    result: ft8Logic.currentScore.toString(),
+                    ftId: 5,
                   ))
             ],
           ));
@@ -89,10 +76,9 @@ class _SpreadArmRightViewState extends State<SpreadArmRightView> {
                       ? CameraView(
                           cameraDescription: widget.cameraDescription,
                           modelAsset: widget.modelAsset,
-                          ftId: 1,
+                          ftId: 2,
                           callBackPoseModel: (poseModel) {
-                            bool complete =
-                                ft1procedure.functionTestRun(poseModel);
+                            bool complete = true;
                             setState(() {});
                             if (complete && alreadyComplete == false) {
                               alreadyComplete = true;
@@ -108,11 +94,11 @@ class _SpreadArmRightViewState extends State<SpreadArmRightView> {
                   right: 0,
                   bottom: 0,
                   child: TestTimerAndScoreWidget(
-                    remainSecond: ft1procedure.second,
+                    remainSecond: ft8procedure.second,
                     resultTitle: '각도',
-                    value: ft1procedure.progressGauge,
-                    result: ft1Logic.finalRightAngle.toString(),
-                    ftId: 1,
+                    value: ft8procedure.progressGauge,
+                    result: ft8Logic.currentScore.toString(),
+                    ftId: 5,
                   ))
             ],
           ));

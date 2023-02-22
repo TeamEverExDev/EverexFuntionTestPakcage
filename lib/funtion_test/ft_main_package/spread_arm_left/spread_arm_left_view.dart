@@ -1,7 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:everex_function_test/funtion_test/camera_and_draw/camera_view.dart';
-import 'package:everex_function_test/funtion_test/spread_arm_left/spread_arm_left_procedure.dart';
-import 'package:everex_function_test/funtion_test/spread_arm_left/spread_arm_left_test_logic.dart';
+import 'package:everex_function_test/funtion_test/ft_main_package/spread_arm_left/spread_arm_left_procedure.dart';
+import 'package:everex_function_test/funtion_test/ft_main_package/spread_arm_left/spread_arm_left_test_logic.dart';
 import 'package:everex_function_test/funtion_test/util/test_timer_and_score_widget.dart';
 import 'package:flutter/material.dart';
 

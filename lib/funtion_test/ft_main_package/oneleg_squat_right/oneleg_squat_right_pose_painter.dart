@@ -1,12 +1,11 @@
 import 'package:camera/camera.dart';
+import 'package:everex_function_test/funtion_test/util/camera_view_size_cal.dart';
 import 'package:everex_function_test/funtion_test/util/draw_util_function.dart';
 import 'package:everex_function_test/vo/pose_model_vo.dart';
 import 'package:flutter/material.dart';
 
-import '../util/camera_view_size_cal.dart';
-
-class RaiseArmForwardPosePainter extends CustomPainter {
-  RaiseArmForwardPosePainter(
+class OnelegSquatRightPosePainter extends CustomPainter {
+  OnelegSquatRightPosePainter(
       {this.poseModelVo,
       required this.width,
       required this.height,
@@ -104,7 +103,7 @@ class RaiseArmForwardPosePainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant RaiseArmForwardPosePainter oldDelegate) {
+  bool shouldRepaint(covariant OnelegSquatRightPosePainter oldDelegate) {
     return oldDelegate.poseModelVo != poseModelVo;
   }
 }

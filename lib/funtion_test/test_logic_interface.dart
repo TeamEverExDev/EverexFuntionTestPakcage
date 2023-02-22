@@ -4,4 +4,6 @@ abstract class TestLogicInterface {
   fTest(PoseModelVo poseModelVo, int ftSectionIndex);
 
   reset();
+
+  bool readyFTest(PoseModelVo poseModelVo);
 }

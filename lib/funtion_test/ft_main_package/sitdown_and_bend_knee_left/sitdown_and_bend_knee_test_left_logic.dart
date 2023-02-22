@@ -2,27 +2,25 @@ import 'package:everex_function_test/funtion_test/test_logic_interface.dart';
 import 'package:everex_function_test/funtion_test/util/evaluation_util.dart';
 import 'package:everex_function_test/vo/pose_model_vo.dart';
 
-class SpreadArmLeftTestLogic implements TestLogicInterface {
-  int finalLeftAngle = 0;
+class SitdownAndBenKneeTestLeftLogic implements TestLogicInterface {
   int tempAngle = 0;
+  int finalLeftAngle = 0;
 
   @override
   fTest(PoseModelVo poseModelVo, int ftSectionIndex) {
     try {
-      PosePoint la;
-      PosePoint lb;
-      PosePoint lc;
+      PosePoint a =
+          PosePoint(poseModelVo.leftPelvis!.x, poseModelVo.leftPelvis!.y);
+      PosePoint b = PosePoint(poseModelVo.leftKnee!.x, poseModelVo.leftKnee!.y);
+      PosePoint c =
+          PosePoint(poseModelVo.leftAnkle!.x, poseModelVo.leftAnkle!.y);
 
-      if (ftSectionIndex == 1) {
-        la = PosePoint(poseModelVo.leftElbow!.x, poseModelVo.leftElbow!.y);
-        lb =
-            PosePoint(poseModelVo.leftShoulder!.x, poseModelVo.leftShoulder!.y);
-        lc = PosePoint(poseModelVo.leftPelvis!.x, poseModelVo.leftPelvis!.y);
+      double rightAngle = get2DAngle(a, b, c);
 
-        tempAngle = get2DAngle(la, lb, lc).toInt();
-        if (tempAngle <= 180 && tempAngle > finalLeftAngle) {
-          finalLeftAngle = tempAngle;
-        }
+      tempAngle = 180 - rightAngle.toInt();
+
+      if (tempAngle <= 180 && tempAngle > finalLeftAngle) {
+        finalLeftAngle = tempAngle;
       }
     } catch (e) {
       print(e);
@@ -35,10 +33,10 @@ class SpreadArmLeftTestLogic implements TestLogicInterface {
     tempAngle = 0;
   }
 
+  @override
   bool readyFTest(PoseModelVo poseModelVo) {
     if (poseModelVo.head!.x > 25 &&
         poseModelVo.head!.x < 35 &&
-        poseModelVo.head!.y > 30 &&
         poseModelVo.rightTiptoe!.y < 80 &&
         poseModelVo.leftTiptoe!.y < 80) {
       return true;
@@ -48,4 +46,4 @@ class SpreadArmLeftTestLogic implements TestLogicInterface {
   }
 }
 
-final ft2Logic = SpreadArmLeftTestLogic();
+final ft6Logic = SitdownAndBenKneeTestLeftLogic();

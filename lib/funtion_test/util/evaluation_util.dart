@@ -233,3 +233,7 @@ double calculateRadianOpposite(PosePoint point1, PosePoint point2) {
     return math.atan(tempY / tempX) + math.pi;
   }
 }
+
+double getHeight(PosePoint a, PosePoint b) {
+  return (a.y - b.y).abs();
+}

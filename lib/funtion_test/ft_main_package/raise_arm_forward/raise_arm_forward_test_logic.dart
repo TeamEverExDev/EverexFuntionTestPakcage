@@ -48,6 +48,18 @@ class RaiseArmForwardTestLogic implements TestLogicInterface {
     finalAngle = 0;
     tempAngle = 0;
   }
+
+  @override
+  bool readyFTest(PoseModelVo poseModelVo) {
+    if (poseModelVo.head!.x > 25 &&
+        poseModelVo.head!.x < 35 &&
+        poseModelVo.rightTiptoe!.y < 80 &&
+        poseModelVo.leftTiptoe!.y < 80) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 final ft3Logic = RaiseArmForwardTestLogic();

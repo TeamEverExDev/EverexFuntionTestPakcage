@@ -1,10 +1,11 @@
 import 'package:everex_function_test/funtion_test/procedure_interface.dart';
-import 'package:everex_function_test/funtion_test/spread_arm_left/spread_arm_left_test_logic.dart';
 import 'package:everex_function_test/vo/function_test_section_model.dart';
 import 'package:everex_function_test/vo/pose_data_one_tick.dart';
 import 'package:everex_function_test/vo/pose_model_vo.dart';
 
-class SpreadArmLeftProcedure implements ProcedureInterface {
+import 'oneleg_squat_right_test_logic.dart';
+
+class OnelegSquatRightProcedure implements ProcedureInterface {
   List<FunctionTestSectionModel> fullSet = <FunctionTestSectionModel>[];
   List<PoseDataOneTick> poseDataOneTicks = <PoseDataOneTick>[];
   Map<int, List<PoseDataOneTick>> resultMap = <int, List<PoseDataOneTick>>{};
@@ -12,6 +13,7 @@ class SpreadArmLeftProcedure implements ProcedureInterface {
   DateTime startDate = DateTime.now();
   double second = 0;
   double progressGauge = 0;
+
   bool tempReady = false;
 
   @override
@@ -19,10 +21,10 @@ class SpreadArmLeftProcedure implements ProcedureInterface {
     fullSet.add(FunctionTestSectionModel(
         index: 0, second: 3, done: false, active: true, imageAsset: ''));
     fullSet.add(FunctionTestSectionModel(
-        index: 1, second: 15, done: false, active: true, imageAsset: ''));
+        index: 0, second: 10, done: false, active: true, imageAsset: ''));
     fullSet.add(FunctionTestSectionModel(
-        index: 2, second: -1, done: false, active: false, imageAsset: ''));
-    ft2Logic.reset();
+        index: 1, second: -1, done: false, active: false, imageAsset: ''));
+    ft8Logic.reset();
   }
 
   @override
@@ -31,17 +33,16 @@ class SpreadArmLeftProcedure implements ProcedureInterface {
     fullSet.add(FunctionTestSectionModel(
         index: 0, second: 3, done: false, active: true, imageAsset: ''));
     fullSet.add(FunctionTestSectionModel(
-        index: 1, second: 15, done: false, active: true, imageAsset: ''));
+        index: 0, second: 10, done: false, active: true, imageAsset: ''));
     fullSet.add(FunctionTestSectionModel(
-        index: 2, second: -1, done: false, active: false, imageAsset: ''));
+        index: 1, second: -1, done: false, active: false, imageAsset: ''));
     poseDataOneTicks.clear();
     resultMap.clear();
     nextIndex = 0;
     startDate = DateTime.now();
     second = 0;
     progressGauge = 0;
-    tempReady = false;
-    ft2Logic.reset();
+    ft8Logic.reset();
   }
 
   @override
@@ -53,15 +54,15 @@ class SpreadArmLeftProcedure implements ProcedureInterface {
     startDate = DateTime.now();
     second = 0;
     progressGauge = 0;
-    tempReady = false;
-    ft2Logic.reset();
+    ft8Logic.reset();
   }
 
   functionTestRun(PoseModelVo poseModelVo) {
     if (fullSet.first.index == 0) {
       //준비 자세
-      bool ready = ft2Logic.readyFTest(poseModelVo);
+      bool ready = ft8Logic.readyFTest(poseModelVo);
       if (ready) {
+        ft8Logic.saveReadyPoseData(poseModelVo);
         if (tempReady == false) {
           startDate = DateTime.now();
           tempReady = true;
@@ -72,14 +73,16 @@ class SpreadArmLeftProcedure implements ProcedureInterface {
           if (DateTime.now().difference(startDate) >
               Duration(seconds: fullSet.first.second)) {
             print("3초 유지 성공");
+            ft8Logic.createStandardPoint();
             fullSet.removeAt(0);
             nextIndex++;
           }
         }
       } else {
+        //TODO 필요하면 추가
+        //ft8Logic.clearReadyPoseData();
         tempReady = false;
       }
-      print(ready);
       return false;
     } else {
       if (fullSet.first.second != -1) {
@@ -94,7 +97,7 @@ class SpreadArmLeftProcedure implements ProcedureInterface {
           progressGauge = second / sectionModel.second; //진행률
 
           try {
-            ft2Logic.fTest(poseModelVo, sectionModel.index); //기능평가 로직 진행
+            ft8Logic.fTest(poseModelVo, sectionModel.index); //기능평가 로직 진행
           } catch (e) {
             print(e);
           }
@@ -127,4 +130,4 @@ class SpreadArmLeftProcedure implements ProcedureInterface {
   }
 }
 
-final ft2procedure = SpreadArmLeftProcedure();
+final ft8procedure = OnelegSquatRightProcedure();

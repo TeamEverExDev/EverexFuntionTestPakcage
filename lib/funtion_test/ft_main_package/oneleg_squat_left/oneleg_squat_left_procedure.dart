@@ -1,10 +1,11 @@
 import 'package:everex_function_test/funtion_test/procedure_interface.dart';
-import 'package:everex_function_test/funtion_test/raise_arm_forward/raise_arm_forward_test_logic.dart';
 import 'package:everex_function_test/vo/function_test_section_model.dart';
 import 'package:everex_function_test/vo/pose_data_one_tick.dart';
 import 'package:everex_function_test/vo/pose_model_vo.dart';
 
-class RaiseArmForwardProcedure implements ProcedureInterface {
+import 'oneleg_squat_left_test_logic.dart';
+
+class OnelegSquatLeftProcedure implements ProcedureInterface {
   List<FunctionTestSectionModel> fullSet = <FunctionTestSectionModel>[];
   List<PoseDataOneTick> poseDataOneTicks = <PoseDataOneTick>[];
   Map<int, List<PoseDataOneTick>> resultMap = <int, List<PoseDataOneTick>>{};
@@ -16,17 +17,21 @@ class RaiseArmForwardProcedure implements ProcedureInterface {
   @override
   setInit() {
     fullSet.add(FunctionTestSectionModel(
-        index: 0, second: 15, done: false, active: true, imageAsset: ''));
+        index: 0, second: 3, done: false, active: true, imageAsset: ''));
+    fullSet.add(FunctionTestSectionModel(
+        index: 0, second: 10, done: false, active: true, imageAsset: ''));
     fullSet.add(FunctionTestSectionModel(
         index: 1, second: -1, done: false, active: false, imageAsset: ''));
-    ft3Logic.reset();
+    ft9Logic.reset();
   }
 
   @override
   reset() {
     fullSet.clear();
     fullSet.add(FunctionTestSectionModel(
-        index: 0, second: 15, done: false, active: true, imageAsset: ''));
+        index: 0, second: 3, done: false, active: true, imageAsset: ''));
+    fullSet.add(FunctionTestSectionModel(
+        index: 0, second: 10, done: false, active: true, imageAsset: ''));
     fullSet.add(FunctionTestSectionModel(
         index: 1, second: -1, done: false, active: false, imageAsset: ''));
     poseDataOneTicks.clear();
@@ -35,7 +40,7 @@ class RaiseArmForwardProcedure implements ProcedureInterface {
     startDate = DateTime.now();
     second = 0;
     progressGauge = 0;
-    ft3Logic.reset();
+    ft9Logic.reset();
   }
 
   @override
@@ -47,7 +52,7 @@ class RaiseArmForwardProcedure implements ProcedureInterface {
     startDate = DateTime.now();
     second = 0;
     progressGauge = 0;
-    ft3Logic.reset();
+    ft9Logic.reset();
   }
 
   functionTestRun(PoseModelVo poseModelVo) {
@@ -63,7 +68,7 @@ class RaiseArmForwardProcedure implements ProcedureInterface {
         progressGauge = second / sectionModel.second; //진행률
 
         try {
-          ft3Logic.fTest(poseModelVo, sectionModel.index); //기능평가 로직 진행
+          ft9Logic.fTest(poseModelVo, sectionModel.index); //기능평가 로직 진행
         } catch (e) {
           print(e);
         }
@@ -95,4 +100,4 @@ class RaiseArmForwardProcedure implements ProcedureInterface {
   }
 }
 
-final ft3procedure = RaiseArmForwardProcedure();
+final ft9procedure = OnelegSquatLeftProcedure();

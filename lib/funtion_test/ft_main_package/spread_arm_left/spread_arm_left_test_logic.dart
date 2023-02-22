@@ -2,26 +2,26 @@ import 'package:everex_function_test/funtion_test/test_logic_interface.dart';
 import 'package:everex_function_test/funtion_test/util/evaluation_util.dart';
 import 'package:everex_function_test/vo/pose_model_vo.dart';
 
-class SpreadArmRightTestLogic implements TestLogicInterface {
-  int finalRightAngle = 0;
+class SpreadArmLeftTestLogic implements TestLogicInterface {
+  int finalLeftAngle = 0;
   int tempAngle = 0;
 
   @override
   fTest(PoseModelVo poseModelVo, int ftSectionIndex) {
     try {
-      PosePoint ra;
-      PosePoint rb;
-      PosePoint rc;
+      PosePoint la;
+      PosePoint lb;
+      PosePoint lc;
 
       if (ftSectionIndex == 1) {
-        ra = PosePoint(poseModelVo.rightElbow!.x, poseModelVo.rightElbow!.y);
-        rb = PosePoint(
-            poseModelVo.rightShoulder!.x, poseModelVo.rightShoulder!.y);
-        rc = PosePoint(poseModelVo.rightPelvis!.x, poseModelVo.rightPelvis!.y);
+        la = PosePoint(poseModelVo.leftElbow!.x, poseModelVo.leftElbow!.y);
+        lb =
+            PosePoint(poseModelVo.leftShoulder!.x, poseModelVo.leftShoulder!.y);
+        lc = PosePoint(poseModelVo.leftPelvis!.x, poseModelVo.leftPelvis!.y);
 
-        tempAngle = get2DAngle(ra, rb, rc).toInt();
-        if (tempAngle <= 180 && tempAngle > finalRightAngle) {
-          finalRightAngle = tempAngle;
+        tempAngle = get2DAngle(la, lb, lc).toInt();
+        if (tempAngle <= 180 && tempAngle > finalLeftAngle) {
+          finalLeftAngle = tempAngle;
         }
       }
     } catch (e) {
@@ -31,14 +31,14 @@ class SpreadArmRightTestLogic implements TestLogicInterface {
 
   @override
   reset() {
-    finalRightAngle = 0;
+    finalLeftAngle = 0;
     tempAngle = 0;
   }
 
+  @override
   bool readyFTest(PoseModelVo poseModelVo) {
     if (poseModelVo.head!.x > 25 &&
         poseModelVo.head!.x < 35 &&
-        poseModelVo.head!.y > 30 &&
         poseModelVo.rightTiptoe!.y < 80 &&
         poseModelVo.leftTiptoe!.y < 80) {
       return true;
@@ -48,4 +48,4 @@ class SpreadArmRightTestLogic implements TestLogicInterface {
   }
 }
 
-final ft1Logic = SpreadArmRightTestLogic();
+final ft2Logic = SpreadArmLeftTestLogic();
