@@ -1,5 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:everex_function_test/funtion_test/camera_and_draw/camera_view.dart';
+import 'package:everex_function_test/funtion_test/util/ready_timer_widget.dart';
 import 'package:everex_function_test/funtion_test/util/test_timer_and_score_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -63,17 +64,20 @@ class _SpreadArmRightViewState extends State<SpreadArmRightView> {
                       : Container(),
                 ),
               ),
-              Positioned(
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  child: TestTimerAndScoreWidget(
-                    remainSecond: ft1procedure.second,
-                    resultTitle: '각도',
-                    value: ft1procedure.progressGauge,
-                    result: ft1Logic.finalRightAngle.toString(),
-                    ftId: 1,
-                  ))
+              ft1procedure.completeReady
+                  ? Positioned(
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      child: TestTimerAndScoreWidget(
+                        remainSecond: ft1procedure.second,
+                        resultTitle: '각도',
+                        value: ft1procedure.progressGauge,
+                        result: ft1Logic.finalRightAngle.toString(),
+                        ftId: 1,
+                      ))
+                  : ReadyTimerWidget(
+                      second: ft1procedure.second.toInt(), ftId: 1)
             ],
           ));
     } else {
@@ -103,17 +107,20 @@ class _SpreadArmRightViewState extends State<SpreadArmRightView> {
                       : Container(),
                 ),
               ),
-              Positioned(
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  child: TestTimerAndScoreWidget(
-                    remainSecond: ft1procedure.second,
-                    resultTitle: '각도',
-                    value: ft1procedure.progressGauge,
-                    result: ft1Logic.finalRightAngle.toString(),
-                    ftId: 1,
-                  ))
+              ft1procedure.completeReady
+                  ? Positioned(
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      child: TestTimerAndScoreWidget(
+                        remainSecond: ft1procedure.second,
+                        resultTitle: '각도',
+                        value: ft1procedure.progressGauge,
+                        result: ft1Logic.finalRightAngle.toString(),
+                        ftId: 1,
+                      ))
+                  : ReadyTimerWidget(
+                      second: ft1procedure.second.toInt(), ftId: 1)
             ],
           ));
     }

@@ -2,6 +2,7 @@ import 'package:camera/camera.dart';
 import 'package:everex_function_test/funtion_test/camera_and_draw/camera_view.dart';
 import 'package:everex_function_test/funtion_test/ft_main_package/sitdown_and_bend_knee_left/sitdown_and_bend_knee_left_procedure.dart';
 import 'package:everex_function_test/funtion_test/ft_main_package/sitdown_and_bend_knee_left/sitdown_and_bend_knee_test_left_logic.dart';
+import 'package:everex_function_test/funtion_test/util/ready_timer_widget.dart';
 import 'package:everex_function_test/funtion_test/util/test_timer_and_score_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -64,17 +65,20 @@ class _SitdownAndBendKneeLeftViewState
                       : Container(),
                 ),
               ),
-              Positioned(
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  child: TestTimerAndScoreWidget(
-                    remainSecond: ft6procedure.second,
-                    resultTitle: '각도',
-                    value: ft6procedure.progressGauge,
-                    result: ft6Logic.finalLeftAngle.toString(),
-                    ftId: 6,
-                  ))
+              ft6procedure.completeReady
+                  ? Positioned(
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      child: TestTimerAndScoreWidget(
+                        remainSecond: ft6procedure.second,
+                        resultTitle: '각도',
+                        value: ft6procedure.progressGauge,
+                        result: ft6Logic.finalLeftAngle.toString(),
+                        ftId: 6,
+                      ))
+                  : ReadyTimerWidget(
+                      second: ft6procedure.second.toInt(), ftId: 6)
             ],
           ));
     } else {
@@ -104,17 +108,20 @@ class _SitdownAndBendKneeLeftViewState
                       : Container(),
                 ),
               ),
-              Positioned(
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  child: TestTimerAndScoreWidget(
-                    remainSecond: ft6procedure.second,
-                    resultTitle: '각도',
-                    value: ft6procedure.progressGauge,
-                    result: ft6Logic.finalLeftAngle.toString(),
-                    ftId: 6,
-                  ))
+              ft6procedure.completeReady
+                  ? Positioned(
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      child: TestTimerAndScoreWidget(
+                        remainSecond: ft6procedure.second,
+                        resultTitle: '각도',
+                        value: ft6procedure.progressGauge,
+                        result: ft6Logic.finalLeftAngle.toString(),
+                        ftId: 6,
+                      ))
+                  : ReadyTimerWidget(
+                      second: ft6procedure.second.toInt(), ftId: 6)
             ],
           ));
     }

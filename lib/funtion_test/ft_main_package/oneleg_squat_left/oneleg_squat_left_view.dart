@@ -1,5 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:everex_function_test/funtion_test/camera_and_draw/camera_view.dart';
+import 'package:everex_function_test/funtion_test/util/ready_timer_widget.dart';
 import 'package:everex_function_test/funtion_test/util/test_timer_and_score_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -63,17 +64,20 @@ class _OnelegSquatLeftViewState extends State<OnelegSquatLeftView> {
                       : Container(),
                 ),
               ),
-              Positioned(
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  child: TestTimerAndScoreWidget(
-                    remainSecond: ft9procedure.second,
-                    resultTitle: '각도',
-                    value: ft9procedure.progressGauge,
-                    result: ft9Logic.currentScore.toString(),
-                    ftId: 9,
-                  ))
+              ft9procedure.completeReady
+                  ? Positioned(
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      child: TestTimerAndScoreWidget(
+                        remainSecond: ft9procedure.second,
+                        resultTitle: '각도',
+                        value: ft9procedure.progressGauge,
+                        result: ft9Logic.currentScore.toString(),
+                        ftId: 9,
+                      ))
+                  : ReadyTimerWidget(
+                      second: ft9procedure.second.toInt(), ftId: 9)
             ],
           ));
     } else {
@@ -103,17 +107,20 @@ class _OnelegSquatLeftViewState extends State<OnelegSquatLeftView> {
                       : Container(),
                 ),
               ),
-              Positioned(
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  child: TestTimerAndScoreWidget(
-                    remainSecond: ft9procedure.second,
-                    resultTitle: '점수',
-                    value: ft9procedure.progressGauge,
-                    result: ft9Logic.currentScore.toString(),
-                    ftId: 9,
-                  ))
+              ft9procedure.completeReady
+                  ? Positioned(
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      child: TestTimerAndScoreWidget(
+                        remainSecond: ft9procedure.second,
+                        resultTitle: '점수',
+                        value: ft9procedure.progressGauge,
+                        result: ft9Logic.currentScore.toString(),
+                        ftId: 9,
+                      ))
+                  : ReadyTimerWidget(
+                      second: ft9procedure.second.toInt(), ftId: 9)
             ],
           ));
     }
