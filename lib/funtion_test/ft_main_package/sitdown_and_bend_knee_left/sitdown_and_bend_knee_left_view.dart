@@ -23,6 +23,18 @@ class _SitdownAndBendKneeLeftViewState
   bool alreadyComplete = false;
 
   @override
+  void initState() {
+    super.initState();
+    ft6procedure.setInit();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    ft6procedure.clear();
+  }
+
+  @override
   Widget build(BuildContext context) {
     Orientation viewOrientation = MediaQuery.of(context).orientation;
     if (viewOrientation == Orientation.landscape) {

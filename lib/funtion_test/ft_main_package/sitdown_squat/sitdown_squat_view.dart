@@ -22,6 +22,18 @@ class _SitdownSquatViewState extends State<SitdownSquatView> {
   bool alreadyComplete = false;
 
   @override
+  void initState() {
+    super.initState();
+    ft7procedure.setInit();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    ft7procedure.clear();
+  }
+
+  @override
   Widget build(BuildContext context) {
     Orientation viewOrientation = MediaQuery.of(context).orientation;
     if (viewOrientation == Orientation.landscape) {

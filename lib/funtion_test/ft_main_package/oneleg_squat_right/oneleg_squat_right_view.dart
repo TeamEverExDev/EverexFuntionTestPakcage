@@ -22,6 +22,18 @@ class _OnelegSquatRightViewState extends State<OnelegSquatRightView> {
   bool alreadyComplete = false;
 
   @override
+  void initState() {
+    super.initState();
+    ft8procedure.setInit();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    ft8procedure.clear();
+  }
+
+  @override
   Widget build(BuildContext context) {
     Orientation viewOrientation = MediaQuery.of(context).orientation;
     if (viewOrientation == Orientation.landscape) {
