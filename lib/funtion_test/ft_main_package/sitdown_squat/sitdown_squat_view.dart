@@ -69,7 +69,7 @@ class _SitdownSquatViewState extends State<SitdownSquatView> {
                   bottom: 0,
                   child: TestTimerAndScoreWidget(
                     remainSecond: ft7procedure.second,
-                    resultTitle: '각도',
+                    resultTitle: '개수',
                     value: ft7procedure.progressGauge,
                     result: ft7Logic.squatCount.toString(),
                     ftId: 7,
@@ -109,7 +109,7 @@ class _SitdownSquatViewState extends State<SitdownSquatView> {
                   bottom: 0,
                   child: TestTimerAndScoreWidget(
                     remainSecond: ft7procedure.second,
-                    resultTitle: '각도',
+                    resultTitle: '개수',
                     value: ft7procedure.progressGauge,
                     result: ft7Logic.squatCount.toString(),
                     ftId: 7,

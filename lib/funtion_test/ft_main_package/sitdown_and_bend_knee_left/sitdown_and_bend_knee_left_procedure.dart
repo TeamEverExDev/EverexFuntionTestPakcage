@@ -25,6 +25,7 @@ class SitdownAndBendKneeLeftProcedure implements ProcedureInterface {
     second = 0;
     progressGauge = 0;
     tempReady = false;
+    ft6Logic.reset();
   }
 
   @override
@@ -43,6 +44,7 @@ class SitdownAndBendKneeLeftProcedure implements ProcedureInterface {
     second = 0;
     progressGauge = 0;
     tempReady = false;
+    ft6Logic.reset();
   }
 
   @override
@@ -53,6 +55,7 @@ class SitdownAndBendKneeLeftProcedure implements ProcedureInterface {
         index: 1, second: 10, done: false, active: true, imageAsset: ''));
     fullSet.add(FunctionTestSectionModel(
         index: 2, second: -1, done: false, active: false, imageAsset: ''));
+    ft6Logic.reset();
   }
 
   functionTestRun(PoseModelVo poseModelVo) {

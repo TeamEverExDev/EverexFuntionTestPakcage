@@ -25,6 +25,7 @@ class SitdownSquatProcedure implements ProcedureInterface {
     second = 0;
     progressGauge = 0;
     tempReady = false;
+    ft7Logic.reset();
   }
 
   @override
@@ -43,16 +44,19 @@ class SitdownSquatProcedure implements ProcedureInterface {
     second = 0;
     progressGauge = 0;
     tempReady = false;
+    ft7Logic.reset();
   }
 
   @override
   setInit() {
+    fullSet.clear();
     fullSet.add(FunctionTestSectionModel(
         index: 0, second: 3, done: false, active: true, imageAsset: ''));
     fullSet.add(FunctionTestSectionModel(
         index: 1, second: 30, done: false, active: true, imageAsset: ''));
     fullSet.add(FunctionTestSectionModel(
         index: 2, second: -1, done: false, active: false, imageAsset: ''));
+    ft7Logic.reset();
   }
 
   functionTestRun(PoseModelVo poseModelVo) {

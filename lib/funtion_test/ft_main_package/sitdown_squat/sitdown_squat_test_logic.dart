@@ -22,6 +22,8 @@ class SitdownSquatLogic implements TestLogicInterface {
   @override
   reset() {
     squatCount = 0;
+    checkStart = false;
+    checkEnd = false;
   }
 
   @override
@@ -99,10 +101,10 @@ class SitdownSquatLogic implements TestLogicInterface {
 
       double rightAngle = get2DAngle(rp, rk, ra);
 
-      if (leftAngle >= START_CONDITION_ANGLE) {
+      if (leftAngle >= END_CONDITION_ANGLE) {
         isLeftEnd = true;
       }
-      if (rightAngle >= START_CONDITION_ANGLE) {
+      if (rightAngle >= END_CONDITION_ANGLE) {
         isRightEnd = true;
       }
 
