@@ -42,6 +42,19 @@ class _SpreadArmRightViewState extends State<SpreadArmRightView> {
           backgroundColor: Colors.black,
           body: Stack(
             children: [
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Positioned(
+                  right: 24,
+                  top: 24,
+                  child: Icon(
+                    Icons.close,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
               Align(
                 alignment: Alignment.center,
                 child: AspectRatio(
@@ -85,6 +98,19 @@ class _SpreadArmRightViewState extends State<SpreadArmRightView> {
           backgroundColor: Colors.black,
           body: Stack(
             children: [
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Positioned(
+                  right: 24,
+                  top: 24,
+                  child: Icon(
+                    Icons.close,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
               Align(
                 alignment: Alignment.center,
                 child: AspectRatio(
