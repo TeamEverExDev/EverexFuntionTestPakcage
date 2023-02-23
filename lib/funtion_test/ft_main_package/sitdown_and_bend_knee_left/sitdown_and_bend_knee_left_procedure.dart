@@ -14,6 +14,7 @@ class SitdownAndBendKneeLeftProcedure implements ProcedureInterface {
   double second = 0;
   double progressGauge = 0;
   bool tempReady = false;
+  bool completeReady = false;
 
   @override
   clear() {
@@ -25,6 +26,7 @@ class SitdownAndBendKneeLeftProcedure implements ProcedureInterface {
     second = 0;
     progressGauge = 0;
     tempReady = false;
+    completeReady = false;
     ft6Logic.reset();
   }
 
@@ -44,6 +46,7 @@ class SitdownAndBendKneeLeftProcedure implements ProcedureInterface {
     second = 0;
     progressGauge = 0;
     tempReady = false;
+    completeReady = false;
     ft6Logic.reset();
   }
 
@@ -73,6 +76,7 @@ class SitdownAndBendKneeLeftProcedure implements ProcedureInterface {
           if (DateTime.now().difference(startDate) >
               Duration(seconds: fullSet.first.second)) {
             print("3초 유지 성공");
+            completeReady = true;
             fullSet.removeAt(0);
             nextIndex++;
           }

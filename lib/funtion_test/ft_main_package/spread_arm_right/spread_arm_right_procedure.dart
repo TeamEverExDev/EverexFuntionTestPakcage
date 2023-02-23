@@ -15,6 +15,7 @@ class SpreadArmRightProcedure implements ProcedureInterface {
   double progressGauge = 0;
 
   bool tempReady = false;
+  bool completeReady = false;
 
   @override
   setInit() {
@@ -43,6 +44,7 @@ class SpreadArmRightProcedure implements ProcedureInterface {
     second = 0;
     progressGauge = 0;
     tempReady = false;
+    completeReady = false;
     ft1Logic.reset();
   }
 
@@ -56,6 +58,7 @@ class SpreadArmRightProcedure implements ProcedureInterface {
     second = 0;
     progressGauge = 0;
     tempReady = false;
+    completeReady = false;
     ft1Logic.reset();
   }
 
@@ -73,6 +76,7 @@ class SpreadArmRightProcedure implements ProcedureInterface {
           if (DateTime.now().difference(startDate) >
               Duration(seconds: fullSet.first.second)) {
             print("3초 유지 성공");
+            completeReady = true;
             fullSet.removeAt(0);
             nextIndex++;
           }

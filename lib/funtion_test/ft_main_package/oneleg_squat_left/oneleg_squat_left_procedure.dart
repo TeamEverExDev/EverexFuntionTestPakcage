@@ -15,6 +15,7 @@ class OnelegSquatLeftProcedure implements ProcedureInterface {
   double progressGauge = 0;
 
   bool tempReady = false;
+  bool completeReady = false;
 
   @override
   setInit() {
@@ -42,6 +43,8 @@ class OnelegSquatLeftProcedure implements ProcedureInterface {
     startDate = DateTime.now();
     second = 0;
     progressGauge = 0;
+    tempReady = false;
+    completeReady = false;
     ft9Logic.reset();
   }
 
@@ -54,6 +57,8 @@ class OnelegSquatLeftProcedure implements ProcedureInterface {
     startDate = DateTime.now();
     second = 0;
     progressGauge = 0;
+    tempReady = false;
+    completeReady = false;
     ft9Logic.reset();
   }
 
@@ -73,6 +78,7 @@ class OnelegSquatLeftProcedure implements ProcedureInterface {
           if (DateTime.now().difference(startDate) >
               Duration(seconds: fullSet.first.second)) {
             print("3초 유지 성공");
+            completeReady = true;
             ft9Logic.createStandardPoint();
             fullSet.removeAt(0);
             nextIndex++;
