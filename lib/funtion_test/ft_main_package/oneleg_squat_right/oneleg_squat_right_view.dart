@@ -37,9 +37,10 @@ class _OnelegSquatRightViewState extends State<OnelegSquatRightView> {
                       ? CameraView(
                           cameraDescription: widget.cameraDescription,
                           modelAsset: widget.modelAsset,
-                          ftId: 2,
+                          ftId: 8,
                           callBackPoseModel: (poseModel) {
-                            bool complete = true;
+                            bool complete =
+                                ft8procedure.functionTestRun(poseModel);
                             setState(() {});
                             if (complete && alreadyComplete == false) {
                               alreadyComplete = true;
@@ -59,7 +60,7 @@ class _OnelegSquatRightViewState extends State<OnelegSquatRightView> {
                     resultTitle: '점수',
                     value: ft8procedure.progressGauge,
                     result: ft8Logic.currentScore.toString(),
-                    ftId: 5,
+                    ftId: 8,
                   ))
             ],
           ));
@@ -76,9 +77,10 @@ class _OnelegSquatRightViewState extends State<OnelegSquatRightView> {
                       ? CameraView(
                           cameraDescription: widget.cameraDescription,
                           modelAsset: widget.modelAsset,
-                          ftId: 2,
+                          ftId: 8,
                           callBackPoseModel: (poseModel) {
-                            bool complete = true;
+                            bool complete =
+                                ft8procedure.functionTestRun(poseModel);
                             setState(() {});
                             if (complete && alreadyComplete == false) {
                               alreadyComplete = true;
@@ -98,7 +100,7 @@ class _OnelegSquatRightViewState extends State<OnelegSquatRightView> {
                     resultTitle: '각도',
                     value: ft8procedure.progressGauge,
                     result: ft8Logic.currentScore.toString(),
-                    ftId: 5,
+                    ftId: 8,
                   ))
             ],
           ));

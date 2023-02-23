@@ -37,9 +37,10 @@ class _OnelegSquatLeftViewState extends State<OnelegSquatLeftView> {
                       ? CameraView(
                           cameraDescription: widget.cameraDescription,
                           modelAsset: widget.modelAsset,
-                          ftId: 2,
+                          ftId: 9,
                           callBackPoseModel: (poseModel) {
-                            bool complete = true;
+                            bool complete =
+                                ft9procedure.functionTestRun(poseModel);
                             setState(() {});
                             if (complete && alreadyComplete == false) {
                               alreadyComplete = true;
@@ -59,7 +60,7 @@ class _OnelegSquatLeftViewState extends State<OnelegSquatLeftView> {
                     resultTitle: '각도',
                     value: ft9procedure.progressGauge,
                     result: ft9Logic.currentScore.toString(),
-                    ftId: 5,
+                    ftId: 9,
                   ))
             ],
           ));
@@ -76,9 +77,10 @@ class _OnelegSquatLeftViewState extends State<OnelegSquatLeftView> {
                       ? CameraView(
                           cameraDescription: widget.cameraDescription,
                           modelAsset: widget.modelAsset,
-                          ftId: 2,
+                          ftId: 9,
                           callBackPoseModel: (poseModel) {
-                            bool complete = true;
+                            bool complete =
+                                ft9procedure.functionTestRun(poseModel);
                             setState(() {});
                             if (complete && alreadyComplete == false) {
                               alreadyComplete = true;
@@ -98,7 +100,7 @@ class _OnelegSquatLeftViewState extends State<OnelegSquatLeftView> {
                     resultTitle: '점수',
                     value: ft9procedure.progressGauge,
                     result: ft9Logic.currentScore.toString(),
-                    ftId: 5,
+                    ftId: 9,
                   ))
             ],
           ));

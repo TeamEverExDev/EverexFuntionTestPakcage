@@ -38,9 +38,10 @@ class _SitdownAndBendKneeLeftViewState
                       ? CameraView(
                           cameraDescription: widget.cameraDescription,
                           modelAsset: widget.modelAsset,
-                          ftId: 2,
+                          ftId: 6,
                           callBackPoseModel: (poseModel) {
-                            bool complete = true;
+                            bool complete =
+                                ft6procedure.functionTestRun(poseModel);
                             setState(() {});
                             if (complete && alreadyComplete == false) {
                               alreadyComplete = true;
@@ -60,7 +61,7 @@ class _SitdownAndBendKneeLeftViewState
                     resultTitle: '각도',
                     value: ft6procedure.progressGauge,
                     result: ft6Logic.finalLeftAngle.toString(),
-                    ftId: 5,
+                    ftId: 6,
                   ))
             ],
           ));
@@ -77,9 +78,10 @@ class _SitdownAndBendKneeLeftViewState
                       ? CameraView(
                           cameraDescription: widget.cameraDescription,
                           modelAsset: widget.modelAsset,
-                          ftId: 2,
+                          ftId: 6,
                           callBackPoseModel: (poseModel) {
-                            bool complete = true;
+                            bool complete =
+                                ft6procedure.functionTestRun(poseModel);
                             setState(() {});
                             if (complete && alreadyComplete == false) {
                               alreadyComplete = true;
@@ -99,7 +101,7 @@ class _SitdownAndBendKneeLeftViewState
                     resultTitle: '각도',
                     value: ft6procedure.progressGauge,
                     result: ft6Logic.finalLeftAngle.toString(),
-                    ftId: 5,
+                    ftId: 6,
                   ))
             ],
           ));

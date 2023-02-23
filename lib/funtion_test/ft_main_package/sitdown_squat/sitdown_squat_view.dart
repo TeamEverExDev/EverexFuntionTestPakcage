@@ -37,9 +37,10 @@ class _SitdownSquatViewState extends State<SitdownSquatView> {
                       ? CameraView(
                           cameraDescription: widget.cameraDescription,
                           modelAsset: widget.modelAsset,
-                          ftId: 2,
+                          ftId: 7,
                           callBackPoseModel: (poseModel) {
-                            bool complete = true;
+                            bool complete =
+                                ft7procedure.functionTestRun(poseModel);
                             setState(() {});
                             if (complete && alreadyComplete == false) {
                               alreadyComplete = true;
@@ -59,7 +60,7 @@ class _SitdownSquatViewState extends State<SitdownSquatView> {
                     resultTitle: '각도',
                     value: ft7procedure.progressGauge,
                     result: ft7Logic.squatCount.toString(),
-                    ftId: 5,
+                    ftId: 7,
                   ))
             ],
           ));
@@ -76,9 +77,10 @@ class _SitdownSquatViewState extends State<SitdownSquatView> {
                       ? CameraView(
                           cameraDescription: widget.cameraDescription,
                           modelAsset: widget.modelAsset,
-                          ftId: 2,
+                          ftId: 7,
                           callBackPoseModel: (poseModel) {
-                            bool complete = true;
+                            bool complete =
+                                ft7procedure.functionTestRun(poseModel);
                             setState(() {});
                             if (complete && alreadyComplete == false) {
                               alreadyComplete = true;
@@ -98,7 +100,7 @@ class _SitdownSquatViewState extends State<SitdownSquatView> {
                     resultTitle: '각도',
                     value: ft7procedure.progressGauge,
                     result: ft7Logic.squatCount.toString(),
-                    ftId: 5,
+                    ftId: 7,
                   ))
             ],
           ));

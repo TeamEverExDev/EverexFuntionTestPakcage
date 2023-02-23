@@ -38,9 +38,10 @@ class _SitdownAndBendKneeRightViewState
                       ? CameraView(
                           cameraDescription: widget.cameraDescription,
                           modelAsset: widget.modelAsset,
-                          ftId: 2,
+                          ftId: 5,
                           callBackPoseModel: (poseModel) {
-                            bool complete = true;
+                            bool complete =
+                                ft5procedure.functionTestRun(poseModel);
                             setState(() {});
                             if (complete && alreadyComplete == false) {
                               alreadyComplete = true;
@@ -77,9 +78,10 @@ class _SitdownAndBendKneeRightViewState
                       ? CameraView(
                           cameraDescription: widget.cameraDescription,
                           modelAsset: widget.modelAsset,
-                          ftId: 2,
+                          ftId: 5,
                           callBackPoseModel: (poseModel) {
-                            bool complete = true;
+                            bool complete =
+                                ft5procedure.functionTestRun(poseModel);
                             setState(() {});
                             if (complete && alreadyComplete == false) {
                               alreadyComplete = true;
