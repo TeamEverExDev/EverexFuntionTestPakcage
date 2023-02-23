@@ -60,7 +60,7 @@ class _TestTimerAndScoreWidgetState extends State<TestTimerAndScoreWidget> {
                                 .headline1!
                                 .copyWith(
                                     color: Colors.white,
-                                    fontSize: 26,
+                                    fontSize: 24,
                                     fontWeight: FontWeight.w700),
                           ),
                           Text(
@@ -70,7 +70,7 @@ class _TestTimerAndScoreWidgetState extends State<TestTimerAndScoreWidget> {
                                 .textTheme
                                 .headline1!
                                 .copyWith(
-                                    fontSize: 48,
+                                    fontSize: 40,
                                     color: Colors.white,
                                     fontWeight: FontWeight.w700,
                                     height: 1),
@@ -95,7 +95,7 @@ class _TestTimerAndScoreWidgetState extends State<TestTimerAndScoreWidget> {
                                 .textTheme
                                 .headline1!
                                 .copyWith(
-                                    fontSize: 26,
+                                    fontSize: 24,
                                     color: Colors.white,
                                     fontWeight: FontWeight.w700),
                           ),
@@ -105,7 +105,7 @@ class _TestTimerAndScoreWidgetState extends State<TestTimerAndScoreWidget> {
                                 .textTheme
                                 .headline1!
                                 .copyWith(
-                                    fontSize: 48,
+                                    fontSize: 40,
                                     color: Colors.white,
                                     fontWeight: FontWeight.w700,
                                     height: 1),
