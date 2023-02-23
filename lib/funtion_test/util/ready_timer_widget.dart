@@ -25,7 +25,7 @@ class _ReadyTimerWidgetState extends State<ReadyTimerWidget> {
             children: [
               Align(
                 alignment: Alignment.center,
-                child: Image.asset("asset/fail_ready.png"),
+                child: Image.asset("assets/tfImage/fail_ready.png"),
               ),
               Align(
                 alignment: Alignment(
@@ -51,7 +51,7 @@ class _ReadyTimerWidgetState extends State<ReadyTimerWidget> {
             children: [
               Align(
                 alignment: Alignment.center,
-                child: Image.asset("asset/ok_ready.png"),
+                child: Image.asset("assets/tfImage/ok_ready.png"),
               ),
               Align(
                 alignment: Alignment(
@@ -133,7 +133,7 @@ class _ReadyTimerWidgetState extends State<ReadyTimerWidget> {
             children: [
               Align(
                 alignment: Alignment.center,
-                child: Image.asset("asset/fail_ready.png"),
+                child: Image.asset("assets/tfImage/fail_ready.png"),
               ),
               Align(
                 alignment: Alignment(
@@ -159,7 +159,7 @@ class _ReadyTimerWidgetState extends State<ReadyTimerWidget> {
             children: [
               Align(
                 alignment: Alignment.center,
-                child: Image.asset("asset/ok_ready.png"),
+                child: Image.asset("assets/tfImage/ok_ready.png"),
               ),
               Align(
                 alignment: Alignment(
