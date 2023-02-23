@@ -19,8 +19,8 @@ class _ReadyTimerWidgetState extends State<ReadyTimerWidget> {
     switch (widget.second) {
       case 0:
         return Stack(
-          children: [
-            const Align(
+          children: const [
+            Align(
               alignment: Alignment.center,
               child: Text(
                 "이미지 자리",
@@ -28,17 +28,17 @@ class _ReadyTimerWidgetState extends State<ReadyTimerWidget> {
               ),
             ),
             Align(
-              alignment: const Alignment(
+              alignment: Alignment(
                 0,
                 1,
               ),
               child: Padding(
-                padding: const EdgeInsets.all(28.0),
+                padding: EdgeInsets.all(28.0),
                 child: Text(
                   "화면 안에 정면으로 서주세요",
                   style: TextStyle(
                     fontSize: 40,
-                    color: Theme.of(context).primaryColor,
+                    color: Colors.white,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -48,8 +48,8 @@ class _ReadyTimerWidgetState extends State<ReadyTimerWidget> {
         );
       case 1:
         return Stack(
-          children: [
-            const Align(
+          children: const [
+            Align(
               alignment: Alignment.center,
               child: Text(
                 "이미지 자리",
@@ -57,17 +57,17 @@ class _ReadyTimerWidgetState extends State<ReadyTimerWidget> {
               ),
             ),
             Align(
-              alignment: const Alignment(
+              alignment: Alignment(
                 0,
                 1,
               ),
               child: Padding(
-                padding: const EdgeInsets.all(28.0),
+                padding: EdgeInsets.all(28.0),
                 child: Text(
                   "3초뒤 시작해주세요",
                   style: TextStyle(
                     fontSize: 40,
-                    color: Theme.of(context).primaryColor,
+                    color: Colors.white,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -76,26 +76,26 @@ class _ReadyTimerWidgetState extends State<ReadyTimerWidget> {
           ],
         );
       case 2:
-        return Align(
-          alignment: const Alignment(
+        return const Align(
+          alignment: Alignment(
             0,
             0,
           ),
           child: Padding(
-            padding: const EdgeInsets.all(28.0),
+            padding: EdgeInsets.all(28.0),
             child: Text(
               "3",
               style: TextStyle(
                 fontSize: 108,
-                color: Theme.of(context).primaryColor,
+                color: Colors.white,
                 fontWeight: FontWeight.w700,
               ),
             ),
           ),
         );
       case 3:
-        return Align(
-          alignment: const Alignment(
+        return const Align(
+          alignment: Alignment(
             0,
             0,
           ),
@@ -103,24 +103,24 @@ class _ReadyTimerWidgetState extends State<ReadyTimerWidget> {
             "2",
             style: TextStyle(
               fontSize: 108,
-              color: Theme.of(context).primaryColor,
+              color: Colors.white,
               fontWeight: FontWeight.w700,
             ),
           ),
         );
       case 4:
-        return Align(
-          alignment: const Alignment(
+        return const Align(
+          alignment: Alignment(
             0,
             0,
           ),
           child: Padding(
-            padding: const EdgeInsets.all(28.0),
+            padding: EdgeInsets.all(28.0),
             child: Text(
               "1",
               style: TextStyle(
                 fontSize: 108,
-                color: Theme.of(context).primaryColor,
+                color: Colors.white,
                 fontWeight: FontWeight.w700,
               ),
             ),
