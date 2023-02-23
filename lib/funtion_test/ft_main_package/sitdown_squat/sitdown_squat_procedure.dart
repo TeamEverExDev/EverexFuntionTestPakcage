@@ -34,7 +34,7 @@ class SitdownSquatProcedure implements ProcedureInterface {
   reset() {
     fullSet.clear();
     fullSet.add(FunctionTestSectionModel(
-        index: 0, second: 3, done: false, active: true, imageAsset: ''));
+        index: 0, second: 5, done: false, active: true, imageAsset: ''));
     fullSet.add(FunctionTestSectionModel(
         index: 1, second: 30, done: false, active: true, imageAsset: ''));
     fullSet.add(FunctionTestSectionModel(
@@ -54,7 +54,7 @@ class SitdownSquatProcedure implements ProcedureInterface {
   setInit() {
     fullSet.clear();
     fullSet.add(FunctionTestSectionModel(
-        index: 0, second: 3, done: false, active: true, imageAsset: ''));
+        index: 0, second: 5, done: false, active: true, imageAsset: ''));
     fullSet.add(FunctionTestSectionModel(
         index: 1, second: 30, done: false, active: true, imageAsset: ''));
     fullSet.add(FunctionTestSectionModel(

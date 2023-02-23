@@ -12,7 +12,7 @@ final pointPaint = Paint()
 
 final bodyPaint = Paint()
   ..style = PaintingStyle.stroke
-  ..strokeWidth = 10.0
+  ..strokeWidth = 5.0
   ..color = Color.fromRGBO(7, 190, 184, 1);
 
 final backgroundPaint = Paint()

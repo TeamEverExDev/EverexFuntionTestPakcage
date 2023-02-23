@@ -34,9 +34,9 @@ class SitdownAndBendKneeLeftProcedure implements ProcedureInterface {
   reset() {
     fullSet.clear();
     fullSet.add(FunctionTestSectionModel(
-        index: 0, second: 3, done: false, active: true, imageAsset: ''));
+        index: 0, second: 5, done: false, active: true, imageAsset: ''));
     fullSet.add(FunctionTestSectionModel(
-        index: 1, second: 15, done: false, active: true, imageAsset: ''));
+        index: 1, second: 10, done: false, active: true, imageAsset: ''));
     fullSet.add(FunctionTestSectionModel(
         index: 2, second: -1, done: false, active: false, imageAsset: ''));
     poseDataOneTicks.clear();
@@ -53,7 +53,7 @@ class SitdownAndBendKneeLeftProcedure implements ProcedureInterface {
   @override
   setInit() {
     fullSet.add(FunctionTestSectionModel(
-        index: 0, second: 3, done: false, active: true, imageAsset: ''));
+        index: 0, second: 5, done: false, active: true, imageAsset: ''));
     fullSet.add(FunctionTestSectionModel(
         index: 1, second: 10, done: false, active: true, imageAsset: ''));
     fullSet.add(FunctionTestSectionModel(

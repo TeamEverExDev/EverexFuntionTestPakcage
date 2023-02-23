@@ -17,7 +17,7 @@ class _ReadyTimerWidgetState extends State<ReadyTimerWidget> {
   @override
   Widget build(BuildContext context) {
     switch (widget.second) {
-      case 5:
+      case 0:
         return Stack(
           children: [
             const Align(
@@ -46,7 +46,7 @@ class _ReadyTimerWidgetState extends State<ReadyTimerWidget> {
             ),
           ],
         );
-      case 4:
+      case 1:
         return Stack(
           children: [
             const Align(
@@ -75,7 +75,7 @@ class _ReadyTimerWidgetState extends State<ReadyTimerWidget> {
             )
           ],
         );
-      case 3:
+      case 2:
         return Align(
           alignment: const Alignment(
             0,
@@ -93,7 +93,7 @@ class _ReadyTimerWidgetState extends State<ReadyTimerWidget> {
             ),
           ),
         );
-      case 2:
+      case 3:
         return Align(
           alignment: const Alignment(
             0,
@@ -108,7 +108,7 @@ class _ReadyTimerWidgetState extends State<ReadyTimerWidget> {
             ),
           ),
         );
-      case 1:
+      case 4:
         return Align(
           alignment: const Alignment(
             0,
@@ -126,7 +126,6 @@ class _ReadyTimerWidgetState extends State<ReadyTimerWidget> {
             ),
           ),
         );
-
       default:
         return Container();
     }
