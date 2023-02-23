@@ -22,13 +22,10 @@ class _ReadyTimerWidgetState extends State<ReadyTimerWidget> {
       switch (widget.second) {
         case 0:
           return Stack(
-            children: const [
+            children: [
               Align(
                 alignment: Alignment.center,
-                child: Text(
-                  "이미지 자리",
-                  style: TextStyle(fontSize: 40, color: Colors.red),
-                ),
+                child: Image.asset("asset/fail_ready.png"),
               ),
               Align(
                 alignment: Alignment(
@@ -51,13 +48,10 @@ class _ReadyTimerWidgetState extends State<ReadyTimerWidget> {
           );
         case 1:
           return Stack(
-            children: const [
+            children: [
               Align(
                 alignment: Alignment.center,
-                child: Text(
-                  "이미지 자리",
-                  style: TextStyle(fontSize: 40, color: Colors.red),
-                ),
+                child: Image.asset("asset/ok_ready.png"),
               ),
               Align(
                 alignment: Alignment(
@@ -136,13 +130,10 @@ class _ReadyTimerWidgetState extends State<ReadyTimerWidget> {
       switch (widget.second) {
         case 0:
           return Stack(
-            children: const [
+            children: [
               Align(
                 alignment: Alignment.center,
-                child: Text(
-                  "이미지 자리",
-                  style: TextStyle(fontSize: 40, color: Colors.red),
-                ),
+                child: Image.asset("asset/fail_ready.png"),
               ),
               Align(
                 alignment: Alignment(
@@ -165,13 +156,10 @@ class _ReadyTimerWidgetState extends State<ReadyTimerWidget> {
           );
         case 1:
           return Stack(
-            children: const [
+            children: [
               Align(
                 alignment: Alignment.center,
-                child: Text(
-                  "이미지 자리",
-                  style: TextStyle(fontSize: 40, color: Colors.red),
-                ),
+                child: Image.asset("asset/ok_ready.png"),
               ),
               Align(
                 alignment: Alignment(
