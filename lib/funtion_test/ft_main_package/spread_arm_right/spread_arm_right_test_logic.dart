@@ -39,8 +39,9 @@ class SpreadArmRightTestLogic implements TestLogicInterface {
   bool readyFTest(PoseModelVo poseModelVo) {
     if (poseModelVo.head!.x > 25 &&
         poseModelVo.head!.x < 35 &&
-        poseModelVo.head!.y > 30 &&
         poseModelVo.rightTiptoe!.y < 80 &&
+        poseModelVo.rightTiptoe!.y > 40 &&
+        poseModelVo.leftTiptoe!.y > 40 &&
         poseModelVo.leftTiptoe!.y < 80) {
       return true;
     } else {
