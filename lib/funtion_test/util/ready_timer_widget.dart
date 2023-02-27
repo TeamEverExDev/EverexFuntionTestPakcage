@@ -135,7 +135,7 @@ class _ReadyTimerWidgetState extends State<ReadyTimerWidget> {
                 alignment: Alignment.center,
                 child: Image.asset("assets/tfImage/fail_ready.png"),
               ),
-              Align(
+              const Align(
                 alignment: Alignment(
                   0,
                   1,
@@ -149,6 +149,7 @@ class _ReadyTimerWidgetState extends State<ReadyTimerWidget> {
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
                     ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),
