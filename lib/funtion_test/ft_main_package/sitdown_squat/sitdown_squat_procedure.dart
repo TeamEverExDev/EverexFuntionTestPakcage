@@ -83,6 +83,9 @@ class SitdownSquatProcedure implements ProcedureInterface {
           }
         }
       } else {
+        startDate = DateTime.now();
+        second =
+            DateTime.now().difference(startDate).inSeconds.toDouble(); // 진행시간
         tempReady = false;
       }
       print(ready);

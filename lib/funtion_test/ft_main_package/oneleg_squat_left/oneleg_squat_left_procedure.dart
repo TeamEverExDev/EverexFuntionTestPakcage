@@ -87,6 +87,9 @@ class OnelegSquatLeftProcedure implements ProcedureInterface {
       } else {
         //TODO 필요하면 추가
         //ft8Logic.clearReadyPoseData();
+        startDate = DateTime.now();
+        second =
+            DateTime.now().difference(startDate).inSeconds.toDouble(); // 진행시간
         tempReady = false;
       }
       return false;
