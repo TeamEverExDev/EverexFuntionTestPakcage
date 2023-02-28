@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:everex_function_test/funtion_test/camera_and_draw/camera_view.dart';
 import 'package:everex_function_test/funtion_test/ft_main_package/raise_arm_forward_right/raise_arm_forward_right_test_logic.dart';
+import 'package:everex_function_test/funtion_test/util/ready_timer_widget.dart';
 import 'package:everex_function_test/funtion_test/util/test_timer_and_score_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -88,7 +89,21 @@ class _RaiseArmForwardRightViewState extends State<RaiseArmForwardRightView> {
                     value: ft3procedure.progressGauge,
                     result: ft3Logic.finalAngle.toString(),
                     ftId: 3,
-                  ))
+                  )),
+              ft3procedure.completeReady
+                  ? Positioned(
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      child: TestTimerAndScoreWidget(
+                        remainSecond: ft3procedure.second,
+                        resultTitle: '각도',
+                        value: ft3procedure.progressGauge,
+                        result: ft3Logic.finalAngle.toString(),
+                        ftId: 3,
+                      ))
+                  : ReadyTimerWidget(
+                      second: ft3procedure.second.toInt(), ftId: 3)
             ],
           ));
     } else {
@@ -142,7 +157,21 @@ class _RaiseArmForwardRightViewState extends State<RaiseArmForwardRightView> {
                     value: ft3procedure.progressGauge,
                     result: ft3Logic.finalAngle.toString(),
                     ftId: 3,
-                  ))
+                  )),
+              ft3procedure.completeReady
+                  ? Positioned(
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      child: TestTimerAndScoreWidget(
+                        remainSecond: ft3procedure.second,
+                        resultTitle: '각도',
+                        value: ft3procedure.progressGauge,
+                        result: ft3Logic.finalAngle.toString(),
+                        ftId: 3,
+                      ))
+                  : ReadyTimerWidget(
+                      second: ft3procedure.second.toInt(), ftId: 3)
             ],
           ));
     }
