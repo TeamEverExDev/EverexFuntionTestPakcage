@@ -2,7 +2,7 @@ import 'package:everex_function_test/funtion_test/test_logic_interface.dart';
 import 'package:everex_function_test/funtion_test/util/evaluation_util.dart';
 import 'package:everex_function_test/vo/pose_model_vo.dart';
 
-class RaiseArmForwardTestLogic implements TestLogicInterface {
+class RaiseArmForwardLeftTestLogic implements TestLogicInterface {
   int finalAngle = 0;
   int tempAngle = 0;
 
@@ -70,4 +70,4 @@ class RaiseArmForwardTestLogic implements TestLogicInterface {
   }
 }
 
-final ft3Logic = RaiseArmForwardTestLogic();
+final ft4Logic = RaiseArmForwardLeftTestLogic();

@@ -1,13 +1,13 @@
 import 'package:camera/camera.dart';
 import 'package:everex_function_test/funtion_test/camera_and_draw/camera_view.dart';
-import 'package:everex_function_test/funtion_test/ft_main_package/raise_arm_forward/raise_arm_forward_test_logic.dart';
+import 'package:everex_function_test/funtion_test/ft_main_package/raise_arm_forward_left/raise_arm_forward_left_test_logic.dart';
 import 'package:everex_function_test/funtion_test/util/test_timer_and_score_widget.dart';
 import 'package:flutter/material.dart';
 
-import 'raise_arm_forward_procedure.dart';
+import 'raise_arm_forward_left_procedure.dart';
 
-class RaiseArmForwardView extends StatefulWidget {
-  const RaiseArmForwardView(
+class RaiseArmForwardLeftView extends StatefulWidget {
+  const RaiseArmForwardLeftView(
       {Key? key, required this.cameraDescription, required this.modelAsset})
       : super(key: key);
 
@@ -15,22 +15,23 @@ class RaiseArmForwardView extends StatefulWidget {
   final String modelAsset;
 
   @override
-  State<RaiseArmForwardView> createState() => _RaiseArmForwardViewState();
+  State<RaiseArmForwardLeftView> createState() =>
+      _RaiseArmForwardLeftViewState();
 }
 
-class _RaiseArmForwardViewState extends State<RaiseArmForwardView> {
+class _RaiseArmForwardLeftViewState extends State<RaiseArmForwardLeftView> {
   bool alreadyComplete = false;
 
   @override
   void initState() {
     super.initState();
-    ft3procedure.setInit();
+    ft4procedure.setInit();
   }
 
   @override
   void dispose() {
     super.dispose();
-    ft3procedure.clear();
+    ft4procedure.clear();
   }
 
   @override
@@ -65,12 +66,12 @@ class _RaiseArmForwardViewState extends State<RaiseArmForwardView> {
                           ftId: 3,
                           callBackPoseModel: (poseModel) {
                             bool complete =
-                                ft3procedure.functionTestRun(poseModel);
+                                ft4procedure.functionTestRun(poseModel);
                             setState(() {});
                             if (complete && alreadyComplete == false) {
                               alreadyComplete = true;
-                              Navigator.of(context).pop(ft3Logic.result);
-                              ft3Logic.resetResult();
+                              Navigator.of(context).pop(ft4Logic.result);
+                              ft4Logic.resetResult();
                             }
                           },
                         )
@@ -82,10 +83,10 @@ class _RaiseArmForwardViewState extends State<RaiseArmForwardView> {
                   right: 0,
                   bottom: 0,
                   child: TestTimerAndScoreWidget(
-                    remainSecond: ft3procedure.second,
+                    remainSecond: ft4procedure.second,
                     resultTitle: '각도',
-                    value: ft3procedure.progressGauge,
-                    result: ft3Logic.finalAngle.toString(),
+                    value: ft4procedure.progressGauge,
+                    result: ft4Logic.finalAngle.toString(),
                     ftId: 3,
                   ))
             ],
@@ -119,12 +120,12 @@ class _RaiseArmForwardViewState extends State<RaiseArmForwardView> {
                           ftId: 3,
                           callBackPoseModel: (poseModel) {
                             bool complete =
-                                ft3procedure.functionTestRun(poseModel);
+                                ft4procedure.functionTestRun(poseModel);
                             setState(() {});
                             if (complete && alreadyComplete == false) {
                               alreadyComplete = true;
-                              Navigator.of(context).pop(ft3Logic.result);
-                              ft3Logic.resetResult();
+                              Navigator.of(context).pop(ft4Logic.result);
+                              ft4Logic.resetResult();
                             }
                           },
                         )
@@ -136,10 +137,10 @@ class _RaiseArmForwardViewState extends State<RaiseArmForwardView> {
                   right: 0,
                   bottom: 0,
                   child: TestTimerAndScoreWidget(
-                    remainSecond: ft3procedure.second,
+                    remainSecond: ft4procedure.second,
                     resultTitle: '각도',
-                    value: ft3procedure.progressGauge,
-                    result: ft3Logic.finalAngle.toString(),
+                    value: ft4procedure.progressGauge,
+                    result: ft4Logic.finalAngle.toString(),
                     ftId: 3,
                   ))
             ],

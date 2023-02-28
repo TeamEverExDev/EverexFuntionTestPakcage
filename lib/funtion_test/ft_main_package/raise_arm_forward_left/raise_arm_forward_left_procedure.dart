@@ -3,9 +3,9 @@ import 'package:everex_function_test/vo/function_test_section_model.dart';
 import 'package:everex_function_test/vo/pose_data_one_tick.dart';
 import 'package:everex_function_test/vo/pose_model_vo.dart';
 
-import 'raise_arm_forward_test_logic.dart';
+import 'raise_arm_forward_left_test_logic.dart';
 
-class RaiseArmForwardProcedure implements ProcedureInterface {
+class RaiseArmForwardLeftProcedure implements ProcedureInterface {
   List<FunctionTestSectionModel> fullSet = <FunctionTestSectionModel>[];
   List<PoseDataOneTick> poseDataOneTicks = <PoseDataOneTick>[];
   Map<int, List<PoseDataOneTick>> resultMap = <int, List<PoseDataOneTick>>{};
@@ -24,7 +24,7 @@ class RaiseArmForwardProcedure implements ProcedureInterface {
         index: 1, second: 15, done: false, active: true, imageAsset: ''));
     fullSet.add(FunctionTestSectionModel(
         index: 2, second: -1, done: false, active: false, imageAsset: ''));
-    ft3Logic.reset();
+    ft4Logic.reset();
   }
 
   @override
@@ -44,7 +44,7 @@ class RaiseArmForwardProcedure implements ProcedureInterface {
     progressGauge = 0;
     tempReady = false;
     completeReady = false;
-    ft3Logic.reset();
+    ft4Logic.reset();
   }
 
   @override
@@ -58,13 +58,13 @@ class RaiseArmForwardProcedure implements ProcedureInterface {
     progressGauge = 0;
     tempReady = false;
     completeReady = false;
-    ft3Logic.reset();
+    ft4Logic.reset();
   }
 
   functionTestRun(PoseModelVo poseModelVo) {
     if (fullSet.first.index == 0) {
       //준비 자세
-      bool ready = ft3Logic.readyFTest(poseModelVo);
+      bool ready = ft4Logic.readyFTest(poseModelVo);
       if (ready) {
         if (tempReady == false) {
           startDate = DateTime.now();
@@ -102,7 +102,7 @@ class RaiseArmForwardProcedure implements ProcedureInterface {
           progressGauge = second / sectionModel.second; //진행률
 
           try {
-            ft3Logic.fTest(poseModelVo, sectionModel.index); //기능평가 로직 진행
+            ft4Logic.fTest(poseModelVo, sectionModel.index); //기능평가 로직 진행
           } catch (e) {
             print(e);
           }
@@ -135,4 +135,4 @@ class RaiseArmForwardProcedure implements ProcedureInterface {
   }
 }
 
-final ft3procedure = RaiseArmForwardProcedure();
+final ft4procedure = RaiseArmForwardLeftProcedure();
