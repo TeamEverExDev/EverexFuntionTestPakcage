@@ -39,6 +39,7 @@ class RaiseArmForwardLeftTestLogic implements TestLogicInterface {
         tempAngle = get2DAngle(ra, rb, rc).toInt();
         if (tempAngle <= 180 && tempAngle > finalAngle) {
           finalAngle = tempAngle;
+          result = finalAngle;
         }
       }
     } catch (e) {

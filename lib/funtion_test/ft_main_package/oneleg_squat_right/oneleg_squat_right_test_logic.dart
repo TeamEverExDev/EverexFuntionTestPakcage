@@ -263,6 +263,7 @@ class OnelegSquatRightTestLogic implements TestLogicInterface {
       temp += checkScore(finallyRightKneeAngle);
 
       currentScore = convertScore(temp);
+      result = currentScore;
     }
   }
 

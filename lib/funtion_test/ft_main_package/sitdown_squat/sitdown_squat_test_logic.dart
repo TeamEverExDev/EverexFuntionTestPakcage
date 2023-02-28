@@ -18,6 +18,7 @@ class SitdownSquatLogic implements TestLogicInterface {
       checkEndPose(poseModelVo);
       if (checkEnd == true) {
         countUp();
+        result = squatCount;
       }
     }
   }

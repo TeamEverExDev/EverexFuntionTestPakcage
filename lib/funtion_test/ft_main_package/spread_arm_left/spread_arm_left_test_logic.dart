@@ -25,6 +25,7 @@ class SpreadArmLeftTestLogic implements TestLogicInterface {
         tempAngle = get2DAngle(la, lb, lc).toInt();
         if (tempAngle <= 180 && tempAngle > finalLeftAngle) {
           finalLeftAngle = tempAngle;
+          result = finalLeftAngle;
         }
       }
     } catch (e) {

@@ -24,6 +24,7 @@ class SitdownAndBenKneeTestLeftLogic implements TestLogicInterface {
 
       if (tempAngle <= 180 && tempAngle > finalLeftAngle) {
         finalLeftAngle = tempAngle;
+        result = finalLeftAngle;
       }
     } catch (e) {
       print(e);
