@@ -20,7 +20,7 @@ class RaiseArmForwardRightTestLogic implements TestLogicInterface {
       PosePoint rb;
       PosePoint rc;
 
-      if (ftSectionIndex == 0) {
+      if (ftSectionIndex == 1) {
         la = PosePoint(poseModelVo.leftElbow!.x, poseModelVo.leftElbow!.y);
         lb =
             PosePoint(poseModelVo.leftShoulder!.x, poseModelVo.leftShoulder!.y);
