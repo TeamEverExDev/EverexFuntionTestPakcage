@@ -147,17 +147,6 @@ class _RaiseArmForwardRightViewState extends State<RaiseArmForwardRightView> {
                       : Container(),
                 ),
               ),
-              Positioned(
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  child: TestTimerAndScoreWidget(
-                    remainSecond: ft3procedure.second,
-                    resultTitle: '각도',
-                    value: ft3procedure.progressGauge,
-                    result: ft3Logic.finalAngle.toString(),
-                    ftId: 3,
-                  )),
               ft3procedure.completeReady
                   ? Positioned(
                       left: 0,
