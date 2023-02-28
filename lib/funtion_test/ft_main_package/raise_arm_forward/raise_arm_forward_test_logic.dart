@@ -7,6 +7,9 @@ class RaiseArmForwardTestLogic implements TestLogicInterface {
   int tempAngle = 0;
 
   @override
+  int? result;
+
+  @override
   fTest(PoseModelVo poseModelVo, int ftSectionIndex) {
     try {
       PosePoint la;
@@ -47,6 +50,11 @@ class RaiseArmForwardTestLogic implements TestLogicInterface {
   reset() {
     finalAngle = 0;
     tempAngle = 0;
+  }
+
+  @override
+  resetResult() {
+    result = null;
   }
 
   @override

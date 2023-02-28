@@ -5,6 +5,9 @@ import 'package:everex_function_test/funtion_test/util/evaluation_util.dart';
 import 'package:everex_function_test/vo/pose_model_vo.dart';
 
 class OnelegSquatRightTestLogic implements TestLogicInterface {
+  @override
+  int? result;
+
   int currentRightKneeAngle = 0;
   int currentRightShoulderAngle = 0;
   int currentRightHipAngle = 0;
@@ -37,6 +40,11 @@ class OnelegSquatRightTestLogic implements TestLogicInterface {
 
   @override
   reset() {}
+
+  @override
+  resetResult() {
+    result = null;
+  }
 
   @override
   bool readyFTest(PoseModelVo poseModelVo) {

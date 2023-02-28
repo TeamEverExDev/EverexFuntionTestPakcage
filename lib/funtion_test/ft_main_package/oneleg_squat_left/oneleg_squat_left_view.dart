@@ -42,14 +42,14 @@ class _OnelegSquatLeftViewState extends State<OnelegSquatLeftView> {
           backgroundColor: Colors.black,
           body: Stack(
             children: [
-              InkWell(
-                onTap: () {
-                  Navigator.of(context).pop();
-                },
-                child: const Positioned(
-                  right: 24,
-                  top: 24,
-                  child: Icon(
+              Positioned(
+                right: 24,
+                top: 24,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: const Icon(
                     Icons.close,
                     color: Colors.white,
                   ),
@@ -70,7 +70,8 @@ class _OnelegSquatLeftViewState extends State<OnelegSquatLeftView> {
                             setState(() {});
                             if (complete && alreadyComplete == false) {
                               alreadyComplete = true;
-                              Navigator.of(context).pop();
+                              Navigator.of(context).pop(ft9Logic.result);
+                              ft9Logic.resetResult();
                             }
                           },
                         )
@@ -98,14 +99,14 @@ class _OnelegSquatLeftViewState extends State<OnelegSquatLeftView> {
           backgroundColor: Colors.black,
           body: Stack(
             children: [
-              InkWell(
-                onTap: () {
-                  Navigator.of(context).pop();
-                },
-                child: const Positioned(
-                  right: 24,
-                  top: 24,
-                  child: Icon(
+              Positioned(
+                right: 24,
+                top: 24,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: const Icon(
                     Icons.close,
                     color: Colors.white,
                   ),
@@ -126,7 +127,8 @@ class _OnelegSquatLeftViewState extends State<OnelegSquatLeftView> {
                             setState(() {});
                             if (complete && alreadyComplete == false) {
                               alreadyComplete = true;
-                              Navigator.of(context).pop();
+                              Navigator.of(context).pop(ft9Logic.result);
+                              ft9Logic.resetResult();
                             }
                           },
                         )

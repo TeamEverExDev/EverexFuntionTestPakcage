@@ -7,6 +7,9 @@ class SpreadArmLeftTestLogic implements TestLogicInterface {
   int tempAngle = 0;
 
   @override
+  int? result;
+
+  @override
   fTest(PoseModelVo poseModelVo, int ftSectionIndex) {
     try {
       PosePoint la;
@@ -33,6 +36,11 @@ class SpreadArmLeftTestLogic implements TestLogicInterface {
   reset() {
     finalLeftAngle = 0;
     tempAngle = 0;
+  }
+
+  @override
+  resetResult() {
+    result = null;
   }
 
   @override

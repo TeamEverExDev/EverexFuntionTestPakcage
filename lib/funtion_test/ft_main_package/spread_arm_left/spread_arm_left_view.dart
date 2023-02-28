@@ -41,14 +41,14 @@ class _SpreadArmLeftViewState extends State<SpreadArmLeftView> {
           backgroundColor: Colors.black,
           body: Stack(
             children: [
-              InkWell(
-                onTap: () {
-                  Navigator.of(context).pop();
-                },
-                child: const Positioned(
-                  right: 24,
-                  top: 24,
-                  child: Icon(
+              Positioned(
+                right: 24,
+                top: 24,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: const Icon(
                     Icons.close,
                     color: Colors.white,
                   ),
@@ -69,7 +69,8 @@ class _SpreadArmLeftViewState extends State<SpreadArmLeftView> {
                             setState(() {});
                             if (complete && alreadyComplete == false) {
                               alreadyComplete = true;
-                              Navigator.of(context).pop();
+                              Navigator.of(context).pop(ft2Logic.result);
+                              ft2Logic.resetResult();
                             }
                           },
                         )
@@ -97,14 +98,14 @@ class _SpreadArmLeftViewState extends State<SpreadArmLeftView> {
           backgroundColor: Colors.black,
           body: Stack(
             children: [
-              InkWell(
-                onTap: () {
-                  Navigator.of(context).pop();
-                },
-                child: const Positioned(
-                  right: 24,
-                  top: 24,
-                  child: Icon(
+              Positioned(
+                right: 24,
+                top: 24,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: const Icon(
                     Icons.close,
                     color: Colors.white,
                   ),
@@ -125,7 +126,8 @@ class _SpreadArmLeftViewState extends State<SpreadArmLeftView> {
                             setState(() {});
                             if (complete && alreadyComplete == false) {
                               alreadyComplete = true;
-                              Navigator.of(context).pop();
+                              Navigator.of(context).pop(ft2Logic.result);
+                              ft2Logic.resetResult();
                             }
                           },
                         )

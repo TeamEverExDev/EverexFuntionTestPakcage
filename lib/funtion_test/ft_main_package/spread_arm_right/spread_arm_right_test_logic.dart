@@ -4,6 +4,10 @@ import 'package:everex_function_test/vo/pose_model_vo.dart';
 
 class SpreadArmRightTestLogic implements TestLogicInterface {
   int finalRightAngle = 0;
+
+  @override
+  int? result;
+
   int tempAngle = 0;
 
   @override
@@ -22,6 +26,7 @@ class SpreadArmRightTestLogic implements TestLogicInterface {
         tempAngle = get2DAngle(ra, rb, rc).toInt();
         if (tempAngle <= 180 && tempAngle > finalRightAngle) {
           finalRightAngle = tempAngle;
+          result = finalRightAngle;
         }
       }
     } catch (e) {
@@ -33,6 +38,11 @@ class SpreadArmRightTestLogic implements TestLogicInterface {
   reset() {
     finalRightAngle = 0;
     tempAngle = 0;
+  }
+
+  @override
+  resetResult() {
+    result = null;
   }
 
   @override

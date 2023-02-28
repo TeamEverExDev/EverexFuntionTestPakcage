@@ -52,8 +52,7 @@ class _FtResultPageState extends State<FtResultPage> {
                     padding: const EdgeInsets.fromLTRB(24, 16, 24, 16),
                     child: Container(
                       decoration: BoxDecoration(
-                          color:
-                              Theme.of(context).primaryColor.withOpacity(0.4),
+                          color: Theme.of(context).primaryColorLight,
                           borderRadius: BorderRadius.circular(8)),
                       width: double.infinity,
                       child: Padding(
@@ -155,11 +154,10 @@ class _FtResultPageState extends State<FtResultPage> {
                       child: Container(
                         width: double.infinity,
                         decoration: BoxDecoration(
-                          border:
-                              Border.all(color: Theme.of(context).primaryColor),
+                          border: Border.all(
+                              color: Theme.of(context).backgroundColor),
                           borderRadius: BorderRadius.circular(8),
-                          color:
-                              Theme.of(context).primaryColor.withOpacity(0.4),
+                          color: Theme.of(context).primaryColorLight,
                         ),
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),

@@ -8,6 +8,9 @@ class SitdownSquatLogic implements TestLogicInterface {
   bool checkEnd = false;
 
   @override
+  int? result;
+
+  @override
   fTest(PoseModelVo poseModelVo, int ftSectionIndex) {
     if (checkStart == false) {
       checkStartPose(poseModelVo);
@@ -24,6 +27,11 @@ class SitdownSquatLogic implements TestLogicInterface {
     squatCount = 0;
     checkStart = false;
     checkEnd = false;
+  }
+
+  @override
+  resetResult() {
+    result = null;
   }
 
   @override

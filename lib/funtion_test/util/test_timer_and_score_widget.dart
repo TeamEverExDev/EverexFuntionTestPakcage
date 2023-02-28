@@ -35,11 +35,9 @@ class _TestTimerAndScoreWidgetState extends State<TestTimerAndScoreWidget> {
               Container(
                 height: 10,
                 child: LinearProgressIndicator(
-                  value: widget.value,
-                  color: Theme.of(context).primaryColor,
-                  backgroundColor:
-                      Theme.of(context).primaryColor.withOpacity(0.3),
-                ),
+                    value: widget.value,
+                    color: Theme.of(context).primaryColor,
+                    backgroundColor: Theme.of(context).shadowColor),
               ),
               Container(
                 width: double.infinity,

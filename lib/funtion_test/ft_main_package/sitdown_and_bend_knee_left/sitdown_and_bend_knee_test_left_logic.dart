@@ -7,6 +7,9 @@ class SitdownAndBenKneeTestLeftLogic implements TestLogicInterface {
   int finalLeftAngle = 0;
 
   @override
+  int? result;
+
+  @override
   fTest(PoseModelVo poseModelVo, int ftSectionIndex) {
     try {
       PosePoint a =
@@ -31,6 +34,11 @@ class SitdownAndBenKneeTestLeftLogic implements TestLogicInterface {
   reset() {
     finalLeftAngle = 0;
     tempAngle = 0;
+  }
+
+  @override
+  resetResult() {
+    result = null;
   }
 
   @override
