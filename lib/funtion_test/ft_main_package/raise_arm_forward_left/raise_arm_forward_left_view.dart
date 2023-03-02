@@ -64,7 +64,7 @@ class _RaiseArmForwardLeftViewState extends State<RaiseArmForwardLeftView> {
                       ? CameraView(
                           cameraDescription: widget.cameraDescription,
                           modelAsset: widget.modelAsset,
-                          ftId: 3,
+                          ftId: 4,
                           callBackPoseModel: (poseModel) {
                             bool complete =
                                 ft4procedure.functionTestRun(poseModel);
@@ -88,7 +88,7 @@ class _RaiseArmForwardLeftViewState extends State<RaiseArmForwardLeftView> {
                     resultTitle: '각도',
                     value: ft4procedure.progressGauge,
                     result: ft4Logic.finalAngle.toString(),
-                    ftId: 3,
+                    ftId: 4,
                   )),
               ft4procedure.completeReady
                   ? Positioned(
@@ -132,7 +132,7 @@ class _RaiseArmForwardLeftViewState extends State<RaiseArmForwardLeftView> {
                       ? CameraView(
                           cameraDescription: widget.cameraDescription,
                           modelAsset: widget.modelAsset,
-                          ftId: 3,
+                          ftId: 4,
                           callBackPoseModel: (poseModel) {
                             bool complete =
                                 ft4procedure.functionTestRun(poseModel);
