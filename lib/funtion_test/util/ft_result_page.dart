@@ -52,7 +52,8 @@ class _FtResultPageState extends State<FtResultPage> {
                     padding: const EdgeInsets.fromLTRB(24, 16, 24, 16),
                     child: Container(
                       decoration: BoxDecoration(
-                          color: Theme.of(context).primaryColorLight,
+                          color:
+                              Theme.of(context).primaryColor.withOpacity(0.4),
                           borderRadius: BorderRadius.circular(8)),
                       width: double.infinity,
                       child: Padding(
@@ -60,7 +61,7 @@ class _FtResultPageState extends State<FtResultPage> {
                         child: Column(
                           children: [
                             Text(
-                              '앞으로 팔 올리기(오른쪽)',
+                              ftIdToTitle(widget.ftId),
                               style:
                                   TextStyle(color: Colors.black, fontSize: 18),
                             ),
@@ -68,7 +69,7 @@ class _FtResultPageState extends State<FtResultPage> {
                               height: 4,
                             ),
                             Text(
-                              widget.ftResult.toString() + "도",
+                              "${widget.ftResult.toString()} ${ftIdPerUnit(widget.ftId)}",
                               style: TextStyle(
                                   fontWeight: FontWeight.w700,
                                   color: Theme.of(context).primaryColor,
@@ -127,8 +128,9 @@ class _FtResultPageState extends State<FtResultPage> {
               height: 80,
             ),
             Lottie.network(
-                'https://resources.mora.kr/static/app/ft/MORA_check.json',
-                repeat: false),
+              'https://resources.mora.kr/static/app/ft/MORA_check.json',
+              repeat: false,
+            ),
             Expanded(
               child: Container(
                 color: Colors.white,
@@ -154,17 +156,18 @@ class _FtResultPageState extends State<FtResultPage> {
                       child: Container(
                         width: double.infinity,
                         decoration: BoxDecoration(
-                          border: Border.all(
-                              color: Theme.of(context).backgroundColor),
+                          border:
+                              Border.all(color: Theme.of(context).primaryColor),
                           borderRadius: BorderRadius.circular(8),
-                          color: Theme.of(context).primaryColorLight,
+                          color:
+                              Theme.of(context).primaryColor.withOpacity(0.4),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
                           child: Column(
                             children: [
                               Text(
-                                '앞으로 팔 올리기(오른쪽)',
+                                ftIdToTitle(widget.ftId),
                                 style: TextStyle(
                                     color: Colors.black, fontSize: 18),
                               ),
@@ -172,7 +175,7 @@ class _FtResultPageState extends State<FtResultPage> {
                                 height: 4,
                               ),
                               Text(
-                                widget.ftResult.toString() + "도",
+                                "${widget.ftResult.toString()} ${ftIdPerUnit(widget.ftId)}",
                                 style: TextStyle(
                                     fontWeight: FontWeight.w700,
                                     color: Theme.of(context).primaryColor,
@@ -221,5 +224,59 @@ class _FtResultPageState extends State<FtResultPage> {
         ),
       );
     }
+  }
+}
+
+String ftIdToTitle(int ftId) {
+  switch (ftId) {
+    case 0:
+      return "";
+    case 1:
+      return "옆으로 팔 올리기(오른쪽)";
+    case 2:
+      return "옆으로 팔 올리기(왼쪽)";
+    case 3:
+      return "앞으로 팔 올리기 (오른쪽)";
+    case 4:
+      return "앞으로 팔 올리기 (왼쪽)";
+    case 5:
+      return "스쿼트";
+    case 6:
+      return "앉아서 무릎 굽혔다 펴기(오른쪽)";
+    case 7:
+      return "앉아서 무릎 굽혔다 펴기(왼쪽)";
+    case 8:
+      return "한발 스쿼트(오른쪽)";
+    case 9:
+      return "한발 스쿼트(왼쪽)";
+    default:
+      return "";
+  }
+}
+
+String ftIdPerUnit(int ftId) {
+  switch (ftId) {
+    case 0:
+      return "";
+    case 1:
+      return "도";
+    case 2:
+      return "도";
+    case 3:
+      return "도";
+    case 4:
+      return "도";
+    case 5:
+      return "개";
+    case 6:
+      return "도";
+    case 7:
+      return "도";
+    case 8:
+      return "점";
+    case 9:
+      return "점";
+    default:
+      return "";
   }
 }
