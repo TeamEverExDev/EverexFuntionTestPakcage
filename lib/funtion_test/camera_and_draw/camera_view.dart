@@ -148,7 +148,7 @@ class _CameraViewState extends State<CameraView> with AfterLayoutMixin {
   }
 
   Future _startLiveFeed(CameraDescription camera) async {
-    _controller = CameraController(camera, ResolutionPreset.high,
+    _controller = CameraController(camera, ResolutionPreset.low,
         enableAudio: false,
         imageFormatGroup: Platform.isAndroid
             ? ImageFormatGroup.yuv420
