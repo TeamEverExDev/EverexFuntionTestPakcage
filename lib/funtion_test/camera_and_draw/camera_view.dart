@@ -85,10 +85,10 @@ class _CameraViewState extends State<CameraView> with AfterLayoutMixin {
     double height = MediaQuery.of(context).size.height;
     Orientation viewOrientation = MediaQuery.of(context).orientation;
 
-    if (viewOrientation == Orientation.landscape) {
-      width = cameraViewSizeCal(height, true);
-    } else {
+    if (height / width > 320 / 240) {
       height = cameraViewSizeCal(width, false);
+    } else {
+      width = cameraViewSizeCal(height, true);
     }
 
     return WillPopScope(
